@@ -819,23 +819,42 @@ function closeModal(){
 }
 function omclick(e){if(e.target===document.getElementById('modal'))closeModal()}
 
+  
+let tickets = [];
+let filter = 'all';
+let cnt = 1;
+
 function create(){
   const p=document.getElementById('fp').value.trim();
   const c=document.getElementById('fc').value.trim();
-  if(!p||!c){toast('⚠️ رقم الجهاز والعميل مطلوبان');return}
+
+  /* التحقق من الحقول المطلوبة */
+  if(!p){
+    toast('⚠️ رقم الجهاز مطلوب');
+    return;
+  }
+
   const id='VL-'+String(cnt++).padStart(3,'0');
+
   tickets.unshift({
-    id,pager:p,client:c,
+    id,
+    pager:p,
+    client:c,
     type:document.getElementById('ft').value.trim()||'سيدان',
     brand:document.getElementById('fb').value.trim()||'غير محدد',
     plateNum:document.getElementById('fpl-num').value.trim()||'----',
     plateLet:document.getElementById('fpl-let').value.trim()||'---',
     zone:document.getElementById('fz').value.trim()||'A1',
     notes:document.getElementById('fn').value.trim(),
-    status:'active',ready:false
+    status:'active',
+    ready:false
   });
-  closeModal();render();toast(`✓ تم إنشاء التذكرة ${id}`);
+
+  closeModal();
+  render();
+  toast(`✓ تم إنشاء التذكرة ${id}`);
 }
+
 
 function toast(msg){
   const el=document.createElement('div');
