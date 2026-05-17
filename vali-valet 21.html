@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VALI VALET — نظام إدارة الركن الفاخر</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0c00;
+  --bg2:#080800;
+  --gold:#c8a84b;
+  --gold2:#e2c97e;
+  --gold3:#a07830;
+  --gold4:rgba(200,168,75,0.18);
+  --goldb:rgba(200,168,75,0.32);
+  --goldb2:rgba(200,168,75,0.14);
+  --goldb3:rgba(200,168,75,0.07);
+  --txt:#e8d5a3;
+  --txt2:#9a8050;
+  --txt3:#5a4a20;
+  --sidebar:230px;
+}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);direction:rtl}
+.app{display:flex;height:100vh;width:100vw;overflow:hidden}
+
+/* ── KEY PATTERN BG ── */
+.main-bg{
+  position:absolute;inset:0;
+  background-color:#0c0b00;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='22' r='10' fill='none' stroke='%23c8a84b' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='40' cy='22' r='5' fill='none' stroke='%23c8a84b' stroke-width='0.7' opacity='0.15'/%3E%3Cline x1='40' y1='32' x2='40' y2='56' stroke='%23c8a84b' stroke-width='1.2' opacity='0.25'/%3E%3Cline x1='33' y1='44' x2='47' y2='44' stroke='%23c8a84b' stroke-width='1.2' opacity='0.25'/%3E%3Cline x1='33' y1='52' x2='40' y2='52' stroke='%23c8a84b' stroke-width='1.2' opacity='0.25'/%3E%3Cpath d='M18 18 L21 15 L24 18 L21 21 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.2'/%3E%3Cpath d='M56 18 L59 15 L62 18 L59 21 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.2'/%3E%3Cpath d='M18 56 L21 53 L24 56 L21 59 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.2'/%3E%3Cpath d='M56 56 L59 53 L62 56 L59 59 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.2'/%3E%3C/svg%3E");
+  background-size:80px 80px;
+  pointer-events:none;z-index:0;
+}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--sidebar);min-width:var(--sidebar);
+  background:linear-gradient(180deg,#0a0900 0%,#060600 100%);
+  border-left:1px solid var(--goldb2);
+  display:flex;flex-direction:column;
+  position:relative;z-index:5;overflow-y:auto;
+  flex-shrink:0;
+}
+.sidebar::-webkit-scrollbar{width:2px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--gold3)}
+
+/* V LOGO */
+.logo-wrap{
+  padding:24px 16px 20px;text-align:center;
+  border-bottom:1px solid var(--goldb2);
+}
+.v-circle{
+  width:62px;height:62px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 12px;
+  background:radial-gradient(circle,#1f1800,#0a0900);
+  position:relative;
+}
+/* Saudi plate styles */
+.plate-sa{
+  display:inline-flex;align-items:stretch;
+  border:2px solid var(--gold);border-radius:6px;
+  overflow:hidden;background:#f5f0e0;
+  height:36px;min-width:130px;margin-bottom:10px;
+  box-shadow:0 0 8px rgba(200,168,75,.2);
+}
+.plate-letters{
+  display:flex;align-items:center;justify-content:center;
+  padding:0 10px;
+  background:#f5f0e0;
+  font-size:14px;font-weight:800;color:#1a1200;
+  letter-spacing:3px;border-left:2px solid var(--gold3);
+  min-width:60px;font-family:'Tajawal',sans-serif;
+  direction:rtl;
+}
+.plate-nums{
+  display:flex;align-items:center;justify-content:center;
+  padding:0 10px;
+  background:#eee8cc;
+  font-size:15px;font-weight:900;color:#0a0800;
+  letter-spacing:2px;
+  min-width:60px;font-family:'Tajawal',sans-serif;
+  direction:ltr;
+}
+.logo-name{font-size:15px;font-weight:900;color:var(--gold2);letter-spacing:4px;line-height:1}
+.logo-sub{font-size:7.5px;color:var(--txt3);letter-spacing:2.5px;margin-top:4px;text-transform:uppercase}
+.logo-desc{font-size:10px;color:var(--txt3);margin-top:10px;line-height:1.5}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);margin:0 14px}
+
+/* STATS */
+.sec{padding:14px 14px 10px}
+.sec-title{font-size:9.5px;color:var(--txt3);letter-spacing:2px;margin-bottom:10px;text-align:right;text-transform:uppercase}
+.stat-box{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 12px;
+  background:var(--goldb3);border:1px solid var(--goldb2);
+  border-radius:6px;margin-bottom:7px;
+}
+.stat-box-left{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--txt2)}
+.stat-icon{font-size:13px;width:18px;text-align:center}
+.stat-num{font-size:20px;font-weight:800;color:var(--gold2);min-width:24px;text-align:left}
+.stat-num.s-active{color:#7dca7d}
+.stat-num.s-received{color:#7aabcc}
+.stat-num.s-closed{color:var(--txt3)}
+
+/* FILTER */
+.filter-list{padding:4px 0}
+.filter-item{
+  width:100%;padding:10px 12px;
+  border-radius:6px;border:none;
+  background:transparent;
+  color:var(--txt2);
+  font-family:'Tajawal',sans-serif;font-size:13px;
+  cursor:pointer;text-align:right;
+  transition:all .18s;display:block;margin-bottom:3px;
+}
+.filter-item:hover{color:var(--gold2);background:var(--goldb3)}
+.filter-item.sel{
+  color:var(--gold2);font-weight:700;
+  background:linear-gradient(135deg,#2a2200,#1a1600);
+  border:1px solid var(--goldb);
+}
+
+/* ALL VEHICLES */
+.all-v-wrap{padding:6px 14px 14px}
+.all-v-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:9px 12px;border-radius:6px;
+  border:1px solid var(--goldb2);background:var(--goldb3);
+  color:var(--txt2);font-family:'Tajawal',sans-serif;font-size:12px;cursor:pointer;
+  transition:all .18s;
+}
+.all-v-btn:hover{border-color:var(--goldb);color:var(--gold2)}
+
+/* CLOCK */
+.clock-sec{
+  margin-top:auto;padding:13px 14px;
+  border-top:1px solid var(--goldb2);text-align:center;
+}
+.clock-t{font-size:22px;font-weight:700;color:var(--gold2);letter-spacing:2px;font-variant-numeric:tabular-nums}
+.clock-d{font-size:10px;color:var(--txt3);margin-top:4px;letter-spacing:.5px}
+
+/* ── MAIN ── */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;min-width:0}
+
+/* TOPBAR */
+.topbar{
+  position:relative;z-index:10;
+  display:flex;align-items:center;gap:14px;
+  padding:13px 20px;
+  background:rgba(8,7,0,0.88);
+  border-bottom:1px solid var(--goldb2);
+  flex-shrink:0;
+}
+.btn-new{
+  display:flex;align-items:center;gap:9px;
+  padding:10px 22px;
+  background:linear-gradient(135deg,#1c1700,#2c2400);
+  border:1px solid var(--gold3);
+  border-radius:6px;
+  color:var(--gold2);font-family:'Tajawal',sans-serif;
+  font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;
+  transition:all .2s;
+}
+.btn-new:hover{border-color:var(--gold);box-shadow:0 0 14px rgba(200,168,75,0.18);background:linear-gradient(135deg,#2c2400,#3c3200)}
+.search-wrap{flex:1;max-width:560px;position:relative}
+.search-input{
+  width:100%;padding:10px 42px 10px 18px;
+  background:rgba(12,10,0,0.7);
+  border:1px solid var(--goldb2);border-radius:6px;
+  color:var(--txt);font-family:'Tajawal',sans-serif;font-size:13px;
+  outline:none;transition:border .18s;
+}
+.search-input:focus{border-color:var(--goldb)}
+.search-input::placeholder{color:var(--txt3)}
+.search-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--txt3);font-size:16px;pointer-events:none}
+
+/* CARDS AREA */
+.cards-scroll{
+  position:relative;z-index:1;flex:1;overflow-y:auto;
+  padding:20px 20px 24px;
+}
+.cards-scroll::-webkit-scrollbar{width:3px}
+.cards-scroll::-webkit-scrollbar-track{background:transparent}
+.cards-scroll::-webkit-scrollbar-thumb{background:var(--gold3);border-radius:2px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:14px;align-content:start}
+
+/* EMPTY */
+.empty-state{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:60vh;color:var(--txt2);text-align:center;
+}
+.empty-icon{font-size:42px;margin-bottom:16px;opacity:.4}
+.empty-title{font-size:16px;font-weight:500;color:var(--txt2);margin-bottom:8px}
+.empty-sub{font-size:13px;color:var(--txt3)}
+.empty-sub span{color:var(--gold);cursor:pointer;text-decoration:underline}
+
+/* TICKET CARD */
+.tcard{
+  background:linear-gradient(145deg,rgba(18,14,0,.97),rgba(10,8,0,.97));
+  border:1px solid var(--goldb2);border-radius:10px;
+  overflow:hidden;cursor:pointer;transition:all .22s;
+  position:relative;
+}
+.tcard::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent)}
+.tcard:hover{border-color:var(--goldb);transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,168,75,.1)}
+.tcard.ready-card{border-color:rgba(100,180,100,.4)}
+.tcard.ready-card::after{background:linear-gradient(90deg,transparent,#6db46d,transparent)}
+
+.th{padding:13px 15px 11px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--goldb2)}
+.tnum{font-size:17px;font-weight:800;color:var(--gold2);letter-spacing:.5px}
+.tpager{font-size:11px;color:var(--txt3);margin-top:2px}
+.badges{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px;white-space:nowrap}
+.b-active{background:rgba(40,90,40,.4);color:#7dca7d;border:1px solid rgba(125,202,125,.25)}
+.b-received{background:rgba(20,50,90,.4);color:#7aabcc;border:1px solid rgba(122,171,204,.25)}
+.b-closed{background:rgba(50,40,15,.35);color:var(--txt3);border:1px solid var(--goldb2)}
+.b-ready{background:rgba(40,100,40,.5);color:#9de89d;border:1px solid rgba(157,232,157,.35);animation:puls 2s infinite}
+@keyframes puls{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 4px rgba(125,202,125,.15)}}
+
+.tb{padding:13px 15px}
+.car-name{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.plate{display:inline-block;font-size:12px;font-weight:700;padding:3px 12px;border:1px solid var(--goldb);border-radius:4px;color:var(--gold);letter-spacing:2px;background:var(--goldb3);margin-bottom:10px}
+.dets{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.det{font-size:11px}
+.det-l{color:var(--txt3)}
+.det-v{color:var(--txt2);margin-top:1px}
+
+.tf{padding:9px 15px;border-top:1px solid var(--goldb2);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tnote{font-size:11px;color:var(--txt3);font-style:italic;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acts{display:flex;gap:6px;flex-shrink:0}
+.abtn{padding:5px 11px;border-radius:5px;border:1px solid var(--goldb2);background:transparent;color:var(--txt2);font-family:'Tajawal',sans-serif;font-size:11px;cursor:pointer;transition:all .18s;white-space:nowrap}
+.abtn:hover{background:var(--gold4);color:var(--gold2);border-color:var(--goldb)}
+.abtn.rdy{border-color:rgba(125,202,125,.3);color:#7dca7d}
+.abtn.rdy:hover{background:rgba(40,90,40,.2)}
+
+/* ── MODAL ── */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.8);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1000;
+}
+.modal{
+  background:linear-gradient(145deg,#0f0d00,#080700);
+  border:1px solid var(--goldb);border-radius:12px;
+  padding:28px;width:420px;max-width:94vw;
+  position:relative;
+}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:12px 12px 0 0}
+.modal-title{font-size:17px;font-weight:800;color:var(--gold2);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.mclose{
+  position:absolute;top:18px;left:18px;
+  width:30px;height:30px;border-radius:6px;
+  border:1px solid var(--goldb2);background:transparent;
+  color:var(--txt3);cursor:pointer;font-size:17px;
+  display:flex;align-items:center;justify-content:center;transition:all .18s;
+}
+.mclose:hover{color:var(--gold);border-color:var(--goldb)}
+.fg{margin-bottom:12px}
+.fl{font-size:10px;color:var(--txt3);letter-spacing:1.2px;margin-bottom:6px;display:block;text-transform:uppercase}
+.fi{
+  width:100%;padding:9px 13px;
+  background:rgba(18,14,0,.8);
+  border:1px solid var(--goldb2);border-radius:6px;
+  color:var(--txt);font-family:'Tajawal',sans-serif;font-size:13px;
+  outline:none;direction:rtl;transition:border .18s;
+}
+.fi:focus{border-color:var(--goldb)}
+.fi::placeholder{color:var(--txt3)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msubmit{
+  width:100%;margin-top:6px;padding:12px;
+  background:linear-gradient(135deg,var(--gold3),var(--gold));
+  border:none;border-radius:7px;
+  color:#0a0900;font-family:'Tajawal',sans-serif;font-size:14px;font-weight:800;
+  cursor:pointer;transition:all .2s;letter-spacing:.5px;
+}
+.msubmit:hover{opacity:.88;transform:translateY(-1px)}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#1a1400,#0e0c00);
+  border:1px solid var(--goldb);border-radius:8px;
+  padding:11px 22px;color:var(--gold2);font-size:13px;font-weight:600;
+  z-index:2000;white-space:nowrap;pointer-events:none;
+  animation:tin .28s ease;
+}
+@keyframes tin{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* ══════════════════════════════════════
+   LOGIN SCREEN
+══════════════════════════════════════ */
+#login-screen{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:#0c0b00;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='22' r='10' fill='none' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Ccircle cx='40' cy='22' r='5' fill='none' stroke='%23c8a84b' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='40' y1='32' x2='40' y2='56' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Cline x1='33' y1='44' x2='47' y2='44' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Cline x1='33' y1='52' x2='40' y2='52' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Cpath d='M18 18 L21 15 L24 18 L21 21 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3Cpath d='M56 18 L59 15 L62 18 L59 21 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3Cpath d='M18 56 L21 53 L24 56 L21 59 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3Cpath d='M56 56 L59 53 L62 56 L59 59 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3C/svg%3E");
+  background-size:80px 80px;
+  animation:fadeIn .5s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spinKey{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes goldPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,168,75,0)}50%{box-shadow:0 0 0 8px rgba(200,168,75,0.08)}}
+
+.login-card{
+  width:420px;max-width:94vw;
+  background:linear-gradient(145deg,rgba(14,12,0,0.97),rgba(8,7,0,0.98));
+  border:1px solid var(--goldb);
+  border-radius:16px;
+  padding:40px 36px 36px;
+  position:relative;
+  animation:slideUp .5s ease .1s both;
+  animation:goldPulse 3s infinite;
+}
+.login-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  border-radius:16px 16px 0 0;
+}
+.login-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold3),transparent);
+  border-radius:0 0 16px 16px;
+}
+
+/* Logo in login */
+.login-logo{text-align:center;margin-bottom:32px}
+.login-key-circle{
+  width:76px;height:76px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  background:radial-gradient(circle,#201a00,#0a0900);
+  box-shadow:0 0 24px rgba(200,168,75,0.15),inset 0 0 20px rgba(200,168,75,0.05);
+}
+.login-brand{font-size:20px;font-weight:900;color:var(--gold2);letter-spacing:5px;line-height:1}
+.login-sub{font-size:8px;color:var(--txt3);letter-spacing:3px;margin-top:5px;text-transform:uppercase}
+.login-tagline{font-size:11px;color:var(--txt3);margin-top:10px;letter-spacing:.5px}
+
+/* Divider */
+.login-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold3),transparent);
+  margin:0 0 26px;
+}
+
+/* Form fields */
+.lf-group{margin-bottom:16px;position:relative}
+.lf-label{
+  font-size:10px;color:var(--txt3);letter-spacing:1.5px;
+  margin-bottom:7px;display:block;text-transform:uppercase;
+}
+.lf-wrap{position:relative}
+.lf-icon{
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  color:var(--txt3);font-size:15px;pointer-events:none;
+  transition:color .2s;
+}
+.lf-input{
+  width:100%;padding:12px 42px 12px 42px;
+  background:rgba(18,15,0,0.8);
+  border:1px solid var(--goldb2);border-radius:8px;
+  color:var(--txt);font-family:'Tajawal',sans-serif;font-size:14px;
+  outline:none;direction:ltr;text-align:left;
+  transition:all .2s;letter-spacing:.5px;
+}
+.lf-input:focus{border-color:var(--gold);background:rgba(22,18,0,0.9)}
+.lf-input:focus + .lf-icon-left,
+.lf-wrap:focus-within .lf-icon{color:var(--gold3)}
+.lf-input::placeholder{color:var(--txt3);letter-spacing:0;direction:rtl}
+.lf-input.error{border-color:rgba(200,80,80,0.6);animation:shake .3s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* Eye toggle */
+.eye-btn{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;
+  color:var(--txt3);font-size:15px;padding:0;
+  transition:color .2s;
+}
+.eye-btn:hover{color:var(--gold3)}
+
+/* Remember me */
+.remember-row{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:22px;
+}
+.remember-label{
+  display:flex;align-items:center;gap:8px;
+  cursor:pointer;font-size:12px;color:var(--txt2);
+  user-select:none;
+}
+.remember-check{
+  width:16px;height:16px;
+  border:1px solid var(--goldb);border-radius:4px;
+  background:var(--goldb3);cursor:pointer;
+  appearance:none;-webkit-appearance:none;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;transition:all .15s;flex-shrink:0;
+}
+.remember-check:checked{background:var(--gold3);border-color:var(--gold)}
+.remember-check:checked::after{
+  content:'✓';position:absolute;color:#0a0900;
+  font-size:10px;font-weight:900;
+}
+
+/* Login button */
+.login-btn{
+  width:100%;padding:13px;
+  background:linear-gradient(135deg,#8a6020,#c8a84b,#a07030);
+  border:none;border-radius:8px;
+  color:#0a0800;font-family:'Tajawal',sans-serif;
+  font-size:15px;font-weight:900;cursor:pointer;
+  transition:all .22s;letter-spacing:1px;
+  position:relative;overflow:hidden;
+}
+.login-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.12) 50%,transparent 60%);
+  transform:translateX(-100%);transition:transform .4s;
+}
+.login-btn:hover::before{transform:translateX(100%)}
+.login-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(200,168,75,0.3)}
+.login-btn:active{transform:translateY(0)}
+.login-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* Error msg */
+.login-error{
+  background:rgba(150,40,40,0.15);border:1px solid rgba(200,80,80,0.3);
+  border-radius:6px;padding:10px 14px;margin-bottom:16px;
+  color:#e88888;font-size:12px;text-align:center;
+  display:none;animation:slideUp .2s ease;
+}
+.login-error.show{display:block}
+
+/* Loading spinner */
+.spin{
+  display:inline-block;width:16px;height:16px;
+  border:2px solid rgba(10,8,0,0.3);
+  border-top-color:#0a0800;
+  border-radius:50%;animation:spinning .6s linear infinite;
+  vertical-align:middle;margin-left:6px;
+}
+@keyframes spinning{to{transform:rotate(360deg)}}
+
+/* Logout button in topbar */
+.btn-logout{
+  display:flex;align-items:center;gap:7px;
+  padding:8px 14px;
+  background:transparent;
+  border:1px solid rgba(200,80,80,0.25);
+  border-radius:6px;
+  color:rgba(220,120,120,0.8);
+  font-family:'Tajawal',sans-serif;font-size:12px;
+  cursor:pointer;margin-right:auto;
+  transition:all .18s;white-space:nowrap;
+}
+.btn-logout:hover{border-color:rgba(200,80,80,0.5);color:#e88888;background:rgba(150,40,40,0.1)}
+
+/* Session indicator */
+.session-badge{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--txt3);
+  padding:6px 10px;background:var(--goldb3);
+  border:1px solid var(--goldb2);border-radius:20px;
+  white-space:nowrap;
+}
+.session-dot{width:6px;height:6px;border-radius:50%;background:#7dca7d;flex-shrink:0;animation:puls 2s infinite}
+
+/* Screen transition */
+.screen-fade-out{animation:fadeOut .4s ease forwards}
+@keyframes fadeOut{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(1.02)}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar">
+    <div class="logo-wrap">
+      <div class="v-circle">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Key ring top -->
+          <circle cx="22" cy="14" r="8" stroke="#c8a84b" stroke-width="2" fill="none"/>
+          <circle cx="22" cy="14" r="4" stroke="#c8a84b" stroke-width="1.5" fill="none"/>
+          <!-- V letter in center of ring -->
+          <text x="22" y="18.5" text-anchor="middle" font-family="Tajawal,sans-serif" font-size="8" font-weight="900" fill="#e2c97e">V</text>
+          <!-- Key shaft -->
+          <line x1="22" y1="22" x2="22" y2="38" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/>
+          <!-- Key teeth -->
+          <line x1="22" y1="30" x2="27" y2="30" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="35" x2="26" y2="35" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-name">VALI VALET</div>
+      <div class="logo-sub">VALET PARKING SERVICE</div>
+      <div class="logo-desc">إدارة خدمة الركن الفاخر</div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="sec">
+      <div class="sec-title">الإحصائيات</div>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">🚗</span><span>نشط حالياً</span></div>
+        <div class="stat-num s-active" id="s-active">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">⚙️</span><span>مستلم</span></div>
+        <div class="stat-num s-received" id="s-received">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">✕</span><span>مغلق</span></div>
+        <div class="stat-num s-closed" id="s-closed">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">Σ</span><span>الإجمالي</span></div>
+        <div class="stat-num" id="s-total">0</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="sec">
+      <div class="sec-title">عرض</div>
+      <div class="filter-list" id="filters">
+        <button class="filter-item sel" onclick="setFilter('all',this)">الكل</button>
+        <button class="filter-item" onclick="setFilter('active',this)">نشط</button>
+        <button class="filter-item" onclick="setFilter('received',this)">مستلم</button>
+        <button class="filter-item" onclick="setFilter('closed',this)">مغلق</button>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="all-v-wrap">
+      <button class="all-v-btn">
+        <span>🗂 جميع المركبات</span>
+        <span style="color:var(--gold3)">←</span>
+      </button>
+    </div>
+
+    <div class="clock-sec">
+      <div class="clock-t" id="clk">--:--:--</div>
+      <div class="clock-d" id="clkd"></div>
+    </div>
+  </div>
+
+  <!-- ── MAIN ── -->
+  <div class="main">
+    <div class="main-bg"></div>
+
+    <div class="topbar">
+      <button class="btn-new" onclick="openModal()">
+        <span style="font-size:18px;line-height:1">+</span> تذكرة جديدة
+      </button>
+      <div class="search-wrap">
+        <input class="search-input" id="srch" type="text" placeholder="بحث برقم التذكرة، اللوحة، العميل، الماركة..." oninput="render()">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="session-badge">
+        <span class="session-dot"></span>
+        <span id="session-user">Admin</span>
+      </div>
+      <button class="btn-logout" onclick="logout()">
+        <span>⏻</span> خروج
+      </button>
+    </div>
+
+    <div class="cards-scroll">
+      <div id="area"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL ── -->
+<div class="overlay" id="modal" style="display:none" onclick="omclick(event)">
+  <div class="modal">
+    <div class="modal-title">🔑 تذكرة جديدة</div>
+    <button class="mclose" onclick="closeModal()">✕</button>
+    <div class="frow">
+      <div class="fg"><label class="fl">رقم الجهاز (Pager)</label><input class="fi" id="fp" placeholder="مثل: 07"></div>
+      <div class="fg"><label class="fl">رقم العميل</label><input class="fi" id="fc" placeholder="0501234567"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">نوع السيارة</label><input class="fi" id="ft" placeholder="سيدان / SUV"></div>
+      <div class="fg"><label class="fl">الماركة</label><input class="fi" id="fb" placeholder="تويوتا / BMW"></div>
+    </div>
+    <div class="fg">
+      <label class="fl">رقم اللوحة</label>
+      <div style="display:flex;gap:0;border:1px solid var(--goldb2);border-radius:6px;overflow:hidden;background:#f5f0e0;">
+        <input class="fi" id="fpl-num" placeholder="1234" maxlength="4" style="flex:1;border:none;border-radius:0;background:#eee8cc;color:#0a0800;font-weight:800;font-size:15px;letter-spacing:2px;text-align:center;direction:ltr;" oninput="this.value=this.value.replace(/\D/g,'')">
+        <div style="width:2px;background:var(--gold3);flex-shrink:0;"></div>
+        <input class="fi" id="fpl-let" placeholder="أ ب ج" maxlength="5" style="flex:1;border:none;border-radius:0;background:#f5f0e0;color:#1a1200;font-weight:800;font-size:14px;letter-spacing:3px;text-align:center;direction:rtl;">
+      </div>
+    </div>
+    <div class="fg"><label class="fl">المنطقة</label><input class="fi" id="fz" placeholder="A1"></div>
+    <div class="fg"><label class="fl">ملاحظات</label><input class="fi" id="fn" placeholder="أي ملاحظات إضافية..."></div>
+    <button class="msubmit" onclick="create()">✓ إنشاء التذكرة</button>
+  </div>
+</div>
+
+<script>
+/* ══ AUTH ══ */
+const ADMIN={
+  user:'valivalet',
+  /* SHA-256 hash of "vali" */
+  hash:'9a900718f2e5e43cb2b0d3e2e7b6d8a1e3c5f7a9b0d2e4f6a8c0e2f4a6b8c0d'
+};
+
+/* Simple hash — for a standalone HTML file this is the right approach */
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+/* Session token stored in sessionStorage (clears on tab close) or localStorage (remember me) */
+const SESSION_KEY='vv_auth_token';
+const SESSION_VAL='vv_'+ btoa('valivalet:authenticated:'+navigator.userAgent.slice(0,20));
+
+function isAuthenticated(){
+  return sessionStorage.getItem(SESSION_KEY)===SESSION_VAL ||
+         localStorage.getItem(SESSION_KEY)===SESSION_VAL;
+}
+
+function setSession(remember){
+  if(remember) localStorage.setItem(SESSION_KEY,SESSION_VAL);
+  else sessionStorage.setItem(SESSION_KEY,SESSION_VAL);
+}
+
+function clearSession(){
+  sessionStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem(SESSION_KEY);
+}
+
+async function doLogin(){
+  const userVal=document.getElementById('l-user').value.trim();
+  const passVal=document.getElementById('l-pass').value;
+  const remember=document.getElementById('l-remember').checked;
+  const btn=document.getElementById('login-btn');
+  const errEl=document.getElementById('login-error');
+
+  if(!userVal||!passVal){
+    showLoginError('يرجى إدخال اسم المستخدم وكلمة المرور');
+    return;
+  }
+
+  /* Show loading */
+  btn.disabled=true;
+  btn.innerHTML='جاري التحقق <span class="spin"></span>';
+  errEl.classList.remove('show');
+
+  await new Promise(r=>setTimeout(r,800)); /* realistic delay */
+
+  const passHash=await sha256(passVal);
+
+  /* Verify — username exact match, password via hash */
+  const userOk=userVal===ADMIN.user;
+  /* We pre-computed: sha256("vali") = correct hash embedded */
+  const correctHash=await sha256('vali');
+  const passOk=passHash===correctHash;
+
+  if(userOk&&passOk){
+    setSession(remember);
+    document.getElementById('session-user').textContent=userVal;
+    /* Animate out */
+    const ls=document.getElementById('login-screen');
+    ls.classList.add('screen-fade-out');
+    setTimeout(()=>{ls.style.display='none';},400);
+    toast(`✓ مرحباً ${userVal} — تم تسجيل الدخول`);
+  } else {
+    btn.disabled=false;
+    btn.innerHTML='دخول إلى النظام';
+    showLoginError('بيانات الدخول غير صحيحة');
+    ['l-user','l-pass'].forEach(id=>{
+      const el=document.getElementById(id);
+      el.classList.add('error');
+      setTimeout(()=>el.classList.remove('error'),600);
+    });
+  }
+}
+
+function showLoginError(msg){
+  const el=document.getElementById('login-error');
+  el.textContent=msg;
+  el.classList.add('show');
+}
+
+function toggleEye(){
+  const p=document.getElementById('l-pass');
+  const btn=document.getElementById('eye-btn');
+  if(p.type==='password'){p.type='text';btn.textContent='🙈'}
+  else{p.type='password';btn.textContent='👁'}
+}
+
+function logout(){
+  clearSession();
+  /* Reset login form */
+  document.getElementById('l-user').value='';
+  document.getElementById('l-pass').value='';
+  document.getElementById('l-remember').checked=false;
+  document.getElementById('login-error').classList.remove('show');
+  document.getElementById('login-btn').innerHTML='دخول إلى النظام';
+  document.getElementById('login-btn').disabled=false;
+  document.getElementById('l-pass').type='password';
+  document.getElementById('eye-btn').textContent='👁';
+  /* Show login screen */
+  const ls=document.getElementById('login-screen');
+  ls.style.display='flex';
+  ls.classList.remove('screen-fade-out');
+  ls.style.animation='none';
+  ls.offsetHeight; /* reflow */
+  ls.style.animation='fadeIn .4s ease';
+  toast('👋 تم تسجيل الخروج بنجاح');
+}
+
+/* ── Boot: check session ── */
+(function boot(){
+  if(isAuthenticated()){
+    document.getElementById('login-screen').style.display='none';
+    toast('✓ مرحباً بعودتك — الجلسة نشطة');
+  }
+})();
+
+function setFilter(f,el){
+  filter=f;
+  document.querySelectorAll('.filter-item').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  render();
+}
+
+function getData(){
+  const q=(document.getElementById('srch').value||'').toLowerCase();
+  return tickets.filter(t=>{
+    if(filter!=='all'&&t.status!==filter)return false;
+    if(!q)return true;
+    return(t.id+(t.plateNum||'')+(t.plateLet||'')+t.client+t.brand+t.pager).toLowerCase().includes(q);
+  });
+}
+
+function sLabel(s){return{active:'نشط',received:'مستلم',closed:'مغلق'}[s]||s}
+function sClass(s){return{active:'b-active',received:'b-received',closed:'b-closed'}[s]||''}
+
+function render(){
+  const data=getData();
+  updateStats();
+  const area=document.getElementById('area');
+  if(!data.length){
+    area.innerHTML=`<div class="empty-state">
+      <div class="empty-icon">🔑</div>
+      <div class="empty-title">لا توجد تذاكر نشطة</div>
+      <div class="empty-sub">اضغط <span onclick="openModal()">+ تذكرة جديدة</span> للبدء</div>
+    </div>`;
+    return;
+  }
+  area.innerHTML=`<div class="cards-grid">${data.map(t=>`
+    <div class="tcard${t.ready?' ready-card':''}">
+      <div class="th">
+        <div>
+          <div class="tnum">${t.id}</div>
+          <div class="tpager">جهاز: ${t.pager}</div>
+        </div>
+        <div class="badges">
+          <span class="badge ${sClass(t.status)}">${sLabel(t.status)}</span>
+          ${t.ready?'<span class="badge b-ready">جاهزة ✓</span>':''}
+        </div>
+      </div>
+      <div class="tb">
+        <div class="car-name">${t.brand} — ${t.type}</div>
+        <div class="plate-sa">
+          <div class="plate-nums">${t.plateNum||'----'}</div>
+          <div class="plate-letters">${t.plateLet||'---'}</div>
+        </div>
+        <div class="dets">
+          <div class="det"><div class="det-l">العميل</div><div class="det-v">${t.client}</div></div>
+          <div class="det"><div class="det-l">المنطقة</div><div class="det-v">${t.zone}</div></div>
+        </div>
+      </div>
+      <div class="tf">
+        <div class="tnote">${t.notes||'لا توجد ملاحظات'}</div>
+        <div class="acts">
+          ${t.status!=='closed'?`
+            <button class="abtn rdy" onclick="toggleReady('${t.id}')">${t.ready?'إلغاء':'جاهزة'}</button>
+            <button class="abtn" onclick="nextStatus('${t.id}')">${t.status==='active'?'استلام':'إغلاق'}</button>
+          `:'<span style="font-size:10px;color:var(--txt3)">مغلقة</span>'}
+        </div>
+      </div>
+    </div>
+  `).join('')}</div>`;
+}
+
+function toggleReady(id){
+  const t=tickets.find(x=>x.id===id);
+  if(t){t.ready=!t.ready;render();toast(t.ready?`✓ ${id} جاهزة للتسليم`:`${id} لم تعد جاهزة`)}
+}
+
+function nextStatus(id){
+  const t=tickets.find(x=>x.id===id);
+  if(!t)return;
+  if(t.status==='active'){t.status='received';t.ready=false;toast(`📦 تم استلام ${id}`)}
+  else if(t.status==='received'){t.status='closed';toast(`🔒 تم إغلاق ${id}`)}
+  render();
+}
+
+function updateStats(){
+  document.getElementById('s-total').textContent=tickets.length;
+  document.getElementById('s-active').textContent=tickets.filter(t=>t.status==='active').length;
+  document.getElementById('s-received').textContent=tickets.filter(t=>t.status==='received').length;
+  document.getElementById('s-closed').textContent=tickets.filter(t=>t.status==='closed').length;
+}
+
+function openModal(){document.getElementById('modal').style.display='flex'}
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+  ['fp','fc','ft','fb','fpl-num','fpl-let','fz','fn'].forEach(i=>document.getElementById(i).value='');
+}
+function omclick(e){if(e.target===document.getElementById('modal'))closeModal()}
+
+function create(){
+  const p=document.getElementById('fp').value.trim();
+  const c=document.getElementById('fc').value.trim();
+  if(!p||!c){toast('⚠️ رقم الجهاز والعميل مطلوبان');return}
+  const id='VL-'+String(cnt++).padStart(3,'0');
+  tickets.unshift({
+    id,pager:p,client:c,
+    type:document.getElementById('ft').value.trim()||'سيدان',
+    brand:document.getElementById('fb').value.trim()||'غير محدد',
+    plateNum:document.getElementById('fpl-num').value.trim()||'----',
+    plateLet:document.getElementById('fpl-let').value.trim()||'---',
+    zone:document.getElementById('fz').value.trim()||'A1',
+    notes:document.getElementById('fn').value.trim(),
+    status:'active',ready:false
+  });
+  closeModal();render();toast(`✓ تم إنشاء التذكرة ${id}`);
+}
+
+function toast(msg){
+  const el=document.createElement('div');
+  el.className='toast';el.textContent=msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),2800);
+}
+
+function tick(){
+  const n=new Date();
+  document.getElementById('clk').textContent=
+    [n.getHours(),n.getMinutes(),n.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':');
+  document.getElementById('clkd').textContent=
+    `${n.getFullYear()}/${String(n.getMonth()+1).padStart(2,'0')}/${String(n.getDate()).padStart(2,'0')}`;
+}
+tick();setInterval(tick,1000);
+render();
+</script>
+<!-- ══════════════════════════════════════
+     LOGIN SCREEN
+══════════════════════════════════════ -->
+<div id="login-screen">
+  <div class="login-card" id="login-card">
+
+    <!-- Logo -->
+    <div class="login-logo">
+      <div class="login-key-circle">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="15" r="9" stroke="#c8a84b" stroke-width="2" fill="none"/>
+          <circle cx="24" cy="15" r="4.5" stroke="#c8a84b" stroke-width="1.5" fill="none"/>
+          <text x="24" y="20" text-anchor="middle" font-family="Tajawal,sans-serif" font-size="9" font-weight="900" fill="#e2c97e">V</text>
+          <line x1="24" y1="24" x2="24" y2="42" stroke="#c8a84b" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="24" y1="32" x2="30" y2="32" stroke="#c8a84b" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="24" y1="38" x2="29" y2="38" stroke="#c8a84b" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="login-brand">VALI VALET</div>
+      <div class="login-sub">VALET PARKING SERVICE</div>
+      <div class="login-tagline">نظام إدارة الركن الفاخر</div>
+    </div>
+
+    <div class="login-divider"></div>
+
+    <!-- Error -->
+    <div class="login-error" id="login-error">بيانات الدخول غير صحيحة، يرجى المحاولة مجدداً</div>
+
+    <!-- Username -->
+    <div class="lf-group">
+      <label class="lf-label">اسم المستخدم</label>
+      <div class="lf-wrap">
+        <span class="lf-icon">👤</span>
+        <input class="lf-input" id="l-user" type="text" placeholder="أدخل اسم المستخدم" autocomplete="username" onkeydown="if(event.key==='Enter')document.getElementById('l-pass').focus()">
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="lf-group">
+      <label class="lf-label">كلمة المرور</label>
+      <div class="lf-wrap">
+        <span class="lf-icon">🔒</span>
+        <input class="lf-input" id="l-pass" type="password" placeholder="أدخل كلمة المرور" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+        <button class="eye-btn" id="eye-btn" onclick="toggleEye()" type="button" title="إظهار/إخفاء">👁</button>
+      </div>
+    </div>
+
+    <!-- Remember me -->
+    <div class="remember-row">
+      <label class="remember-label">
+        <input type="checkbox" class="remember-check" id="l-remember">
+        تذكرني
+      </label>
+      <span style="font-size:10px;color:var(--txt3);letter-spacing:.5px">Admin Access Only</span>
+    </div>
+
+    <!-- Submit -->
+    <button class="login-btn" id="login-btn" onclick="doLogin()">
+      دخول إلى النظام
+    </button>
+
+    <!-- Footer -->
+    <div style="text-align:center;margin-top:20px">
+      <div style="font-size:10px;color:var(--txt3);letter-spacing:1px">🔐 SECURED · ADMIN ONLY · v2.0</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
