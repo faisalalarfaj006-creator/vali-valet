@@ -25,8 +25,7 @@
 html,body{height:100%;overflow:hidden}
 body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);direction:rtl}
 .app{display:flex;height:100vh;width:100vw;overflow:hidden}
-
-/* ── KEY PATTERN BG ── */
+ 
 .main-bg{
   position:absolute;inset:0;
   background-color:#0c0b00;
@@ -34,7 +33,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   background-size:80px 80px;
   pointer-events:none;z-index:0;
 }
-
+ 
 /* ── SIDEBAR ── */
 .sidebar{
   width:var(--sidebar);min-width:var(--sidebar);
@@ -46,8 +45,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
 }
 .sidebar::-webkit-scrollbar{width:2px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--gold3)}
-
-/* V LOGO */
+ 
 .logo-wrap{
   padding:24px 16px 20px;text-align:center;
   border-bottom:1px solid var(--goldb2);
@@ -60,38 +58,11 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   background:radial-gradient(circle,#1f1800,#0a0900);
   position:relative;
 }
-/* Saudi plate styles */
-.plate-sa{
-  display:inline-flex;align-items:stretch;
-  border:2px solid var(--gold);border-radius:6px;
-  overflow:hidden;background:#f5f0e0;
-  height:36px;min-width:130px;margin-bottom:10px;
-  box-shadow:0 0 8px rgba(200,168,75,.2);
-}
-.plate-letters{
-  display:flex;align-items:center;justify-content:center;
-  padding:0 10px;
-  background:#f5f0e0;
-  font-size:14px;font-weight:800;color:#1a1200;
-  letter-spacing:3px;border-left:2px solid var(--gold3);
-  min-width:60px;font-family:'Tajawal',sans-serif;
-  direction:rtl;
-}
-.plate-nums{
-  display:flex;align-items:center;justify-content:center;
-  padding:0 10px;
-  background:#eee8cc;
-  font-size:15px;font-weight:900;color:#0a0800;
-  letter-spacing:2px;
-  min-width:60px;font-family:'Tajawal',sans-serif;
-  direction:ltr;
-}
 .logo-name{font-size:15px;font-weight:900;color:var(--gold2);letter-spacing:4px;line-height:1}
 .logo-sub{font-size:7.5px;color:var(--txt3);letter-spacing:2.5px;margin-top:4px;text-transform:uppercase}
 .logo-desc{font-size:10px;color:var(--txt3);margin-top:10px;line-height:1.5}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);margin:0 14px}
-
-/* STATS */
+ 
 .sec{padding:14px 14px 10px}
 .sec-title{font-size:9.5px;color:var(--txt3);letter-spacing:2px;margin-bottom:10px;text-align:right;text-transform:uppercase}
 .stat-box{
@@ -106,8 +77,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
 .stat-num.s-active{color:#7dca7d}
 .stat-num.s-received{color:#7aabcc}
 .stat-num.s-closed{color:var(--txt3)}
-
-/* FILTER */
+ 
 .filter-list{padding:4px 0}
 .filter-item{
   width:100%;padding:10px 12px;
@@ -124,8 +94,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   background:linear-gradient(135deg,#2a2200,#1a1600);
   border:1px solid var(--goldb);
 }
-
-/* ALL VEHICLES */
+ 
 .all-v-wrap{padding:6px 14px 14px}
 .all-v-btn{
   width:100%;display:flex;align-items:center;justify-content:space-between;
@@ -135,19 +104,17 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   transition:all .18s;
 }
 .all-v-btn:hover{border-color:var(--goldb);color:var(--gold2)}
-
-/* CLOCK */
+ 
 .clock-sec{
   margin-top:auto;padding:13px 14px;
   border-top:1px solid var(--goldb2);text-align:center;
 }
 .clock-t{font-size:22px;font-weight:700;color:var(--gold2);letter-spacing:2px;font-variant-numeric:tabular-nums}
 .clock-d{font-size:10px;color:var(--txt3);margin-top:4px;letter-spacing:.5px}
-
+ 
 /* ── MAIN ── */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;min-width:0}
-
-/* TOPBAR */
+ 
 .topbar{
   position:relative;z-index:10;
   display:flex;align-items:center;gap:14px;
@@ -175,11 +142,10 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   color:var(--txt);font-family:'Tajawal',sans-serif;font-size:13px;
   outline:none;transition:border .18s;
 }
-.search-input:focus{border-color:var(--gold)}
+.search-input:focus{border-color:var(--goldb)}
 .search-input::placeholder{color:var(--txt3)}
 .search-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--txt3);font-size:16px;pointer-events:none}
-
-/* CARDS AREA */
+ 
 .cards-scroll{
   position:relative;z-index:1;flex:1;overflow-y:auto;
   padding:20px 20px 24px;
@@ -188,8 +154,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
 .cards-scroll::-webkit-scrollbar-track{background:transparent}
 .cards-scroll::-webkit-scrollbar-thumb{background:var(--gold3);border-radius:2px}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:14px;align-content:start}
-
-/* EMPTY */
+ 
 .empty-state{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   height:60vh;color:var(--txt2);text-align:center;
@@ -198,7 +163,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
 .empty-title{font-size:16px;font-weight:500;color:var(--txt2);margin-bottom:8px}
 .empty-sub{font-size:13px;color:var(--txt3)}
 .empty-sub span{color:var(--gold);cursor:pointer;text-decoration:underline}
-
+ 
 /* TICKET CARD */
 .tcard{
   background:linear-gradient(145deg,rgba(18,14,0,.97),rgba(10,8,0,.97));
@@ -210,7 +175,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
 .tcard:hover{border-color:var(--goldb);transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,168,75,.1)}
 .tcard.ready-card{border-color:rgba(100,180,100,.4)}
 .tcard.ready-card::after{background:linear-gradient(90deg,transparent,#6db46d,transparent)}
-
+ 
 .th{padding:13px 15px 11px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--goldb2)}
 .tnum{font-size:17px;font-weight:800;color:var(--gold2);letter-spacing:.5px}
 .tpager{font-size:11px;color:var(--txt3);margin-top:2px}
@@ -219,207 +184,1033 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
 .b-active{background:rgba(40,90,40,.4);color:#7dca7d;border:1px solid rgba(125,202,125,.25)}
 .b-received{background:rgba(20,50,90,.4);color:#7aabcc;border:1px solid rgba(122,171,204,.25)}
 .b-closed{background:rgba(50,40,15,.35);color:var(--txt3);border:1px solid var(--goldb2)}
-.b-ready{background:rgba(40,100,40,.5);color:#9de889;border:1px solid rgba(157,232,157,.35);animation:puls 2s infinite}
+.b-ready{background:rgba(40,100,40,.5);color:#9de89d;border:1px solid rgba(157,232,157,.35);animation:puls 2s infinite}
 @keyframes puls{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 4px rgba(125,202,125,.15)}}
-
+ 
 .tb{padding:13px 15px}
 .car-name{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:6px}
-.plate{display:inline-block;font-size:12px;font-weight:700;padding:3px 12px;border:1px solid var(--goldb);border-radius:4px;color:var(--gold);letter-spacing:2px;background:#f7f0e0}
-.plate-nums{font-family:'Tajawal',sans-serif}
-.plate-sa{margin-left:6px}
-.plate-country{font-family:'Tajawal',sans-serif;font-size:11px;color:var(--txt3);margin-left:6px}
-.kbd{font-family:monospace}
-.meta{font-size:12px;color:var(--txt2);margin-top:6px}
-.right{margin-left:auto}
-.sep{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;vertical-align:middle;margin:0 6px}
-@media (max-width: 980px){
-  .cards-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.plate-sa{
+  display:inline-flex;align-items:stretch;
+  border:2px solid var(--gold);border-radius:6px;
+  overflow:hidden;background:#f5f0e0;
+  height:32px;min-width:120px;margin-bottom:10px;
+  box-shadow:0 0 8px rgba(200,168,75,.2);
 }
+.plate-letters{
+  display:flex;align-items:center;justify-content:center;
+  padding:0 10px;
+  background:#f5f0e0;
+  font-size:13px;font-weight:800;color:#1a1200;
+  letter-spacing:3px;border-left:2px solid var(--gold3);
+  min-width:55px;font-family:'Tajawal',sans-serif;
+  direction:rtl;
+}
+.plate-nums{
+  display:flex;align-items:center;justify-content:center;
+  padding:0 10px;
+  background:#eee8cc;
+  font-size:14px;font-weight:900;color:#0a0800;
+  letter-spacing:2px;
+  min-width:55px;font-family:'Tajawal',sans-serif;
+  direction:ltr;
+}
+.dets{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.det{font-size:11px}
+.det-l{color:var(--txt3)}
+.det-v{color:var(--txt2);margin-top:1px}
+ 
+.tf{padding:9px 15px;border-top:1px solid var(--goldb2);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tnote{font-size:11px;color:var(--txt3);font-style:italic;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acts{display:flex;gap:6px;flex-shrink:0}
+.abtn{padding:5px 11px;border-radius:5px;border:1px solid var(--goldb2);background:transparent;color:var(--txt2);font-family:'Tajawal',sans-serif;font-size:11px;cursor:pointer;transition:all .18s;white-space:nowrap}
+.abtn:hover{background:var(--gold4);color:var(--gold2);border-color:var(--goldb)}
+.abtn.rdy{border-color:rgba(125,202,125,.3);color:#7dca7d}
+.abtn.rdy:hover{background:rgba(40,90,40,.2)}
+ 
+/* ── MODAL ── */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.8);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1000;
+}
+.modal{
+  background:linear-gradient(145deg,#0f0d00,#080700);
+  border:1px solid var(--goldb);border-radius:12px;
+  padding:28px;width:420px;max-width:94vw;
+  position:relative;
+  max-height:92vh;overflow-y:auto;
+}
+.modal::-webkit-scrollbar{width:2px}
+.modal::-webkit-scrollbar-thumb{background:var(--gold3)}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:12px 12px 0 0}
+.modal-title{font-size:17px;font-weight:800;color:var(--gold2);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.mclose{
+  position:absolute;top:18px;right:18px;
+  width:30px;height:30px;border-radius:6px;
+  border:1px solid var(--goldb2);background:transparent;
+  color:var(--txt3);cursor:pointer;font-size:17px;
+  display:flex;align-items:center;justify-content:center;transition:all .18s;
+}
+.mclose:hover{color:var(--gold);border-color:var(--goldb)}
+.fg{margin-bottom:12px}
+.fl{font-size:10px;color:var(--txt3);letter-spacing:1.2px;margin-bottom:6px;display:block;text-transform:uppercase}
+.fi{
+  width:100%;padding:9px 13px;
+  background:rgba(18,14,0,.8);
+  border:1px solid var(--goldb2);border-radius:6px;
+  color:var(--txt);font-family:'Tajawal',sans-serif;font-size:13px;
+  outline:none;direction:rtl;transition:border .18s;
+}
+.fi:focus{border-color:var(--goldb)}
+.fi::placeholder{color:var(--txt3)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msubmit{
+  width:100%;margin-top:6px;padding:12px;
+  background:linear-gradient(135deg,var(--gold3),var(--gold));
+  border:none;border-radius:7px;
+  color:#0a0900;font-family:'Tajawal',sans-serif;font-size:14px;font-weight:800;
+  cursor:pointer;transition:all .2s;letter-spacing:.5px;
+}
+.msubmit:hover{opacity:.88;transform:translateY(-1px)}
+ 
+/* ── DETAIL MODAL ── */
+.detail-modal{
+  background:linear-gradient(145deg,#0f0d00,#080700);
+  border:1px solid var(--goldb);border-radius:12px;
+  padding:28px;width:480px;max-width:94vw;
+  position:relative;
+  max-height:92vh;overflow-y:auto;
+}
+.detail-modal::-webkit-scrollbar{width:2px}
+.detail-modal::-webkit-scrollbar-thumb{background:var(--gold3)}
+.detail-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:12px 12px 0 0}
+.detail-plate-big{
+  display:inline-flex;align-items:stretch;
+  border:2px solid var(--gold);border-radius:8px;
+  overflow:hidden;background:#f5f0e0;
+  height:46px;min-width:180px;margin:14px 0;
+  box-shadow:0 0 14px rgba(200,168,75,.25);
+}
+.detail-plate-big .plate-nums{font-size:20px;min-width:80px}
+.detail-plate-big .plate-letters{font-size:18px;min-width:80px}
+.drow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.dfield{background:var(--goldb3);border:1px solid var(--goldb2);border-radius:8px;padding:10px 13px}
+.dfield-l{font-size:9px;color:var(--txt3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.dfield-v{font-size:14px;font-weight:600;color:var(--txt)}
+.dfield-full{grid-column:1/-1}
+.status-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.status-btn{
+  flex:1;min-width:100px;padding:10px 14px;border-radius:7px;
+  border:1px solid var(--goldb2);background:var(--goldb3);
+  color:var(--txt2);font-family:'Tajawal',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .2s;text-align:center;
+}
+.status-btn:hover{background:var(--gold4);border-color:var(--goldb);color:var(--gold2)}
+.status-btn.rdy-btn{border-color:rgba(125,202,125,.3);color:#7dca7d}
+.status-btn.rdy-btn:hover{background:rgba(40,90,40,.2)}
+.status-btn.next-btn{border-color:var(--gold3);color:var(--gold2)}
+.status-btn.next-btn:hover{background:linear-gradient(135deg,#2c2400,#3c3200)}
+ 
+/* ── ALL VEHICLES TABLE MODAL ── */
+.table-modal{
+  background:linear-gradient(145deg,#0f0d00,#080700);
+  border:1px solid var(--goldb);border-radius:12px;
+  padding:28px;width:900px;max-width:96vw;
+  position:relative;
+  max-height:92vh;overflow-y:auto;
+}
+.table-modal::-webkit-scrollbar{width:2px}
+.table-modal::-webkit-scrollbar-thumb{background:var(--gold3)}
+.table-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:12px 12px 0 0}
+ 
+.table-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.table-search{
+  flex:1;min-width:180px;padding:9px 14px;
+  background:rgba(18,14,0,.8);
+  border:1px solid var(--goldb2);border-radius:6px;
+  color:var(--txt);font-family:'Tajawal',sans-serif;font-size:13px;
+  outline:none;
+}
+.table-search:focus{border-color:var(--goldb)}
+.table-search::placeholder{color:var(--txt3)}
+.date-filter{
+  padding:9px 12px;
+  background:rgba(18,14,0,.8);
+  border:1px solid var(--goldb2);border-radius:6px;
+  color:var(--txt2);font-family:'Tajawal',sans-serif;font-size:12px;
+  outline:none;cursor:pointer;
+}
+.date-filter:focus{border-color:var(--goldb)}
+ 
+.vtable{width:100%;border-collapse:collapse;direction:rtl}
+.vtable th{
+  padding:10px 12px;
+  font-size:10px;color:var(--txt3);letter-spacing:1.5px;text-transform:uppercase;
+  border-bottom:1px solid var(--goldb2);text-align:right;
+  background:var(--goldb3);font-weight:700;
+}
+.vtable th:first-child{border-radius:0 6px 0 0}
+.vtable th:last-child{border-radius:6px 0 0 0}
+.vtable td{
+  padding:10px 12px;font-size:13px;color:var(--txt2);
+  border-bottom:1px solid var(--goldb2);text-align:right;
+  vertical-align:middle;
+}
+.vtable tr:last-child td{border-bottom:none}
+.vtable tbody tr{transition:background .15s;cursor:pointer}
+.vtable tbody tr:hover td{background:var(--goldb3)}
+.vtable .pl-cell{
+  display:inline-flex;align-items:stretch;
+  border:1px solid var(--gold);border-radius:5px;
+  overflow:hidden;background:#f5f0e0;height:24px;
+}
+.vtable .pl-cell .plate-nums{font-size:11px;min-width:40px;padding:0 7px}
+.vtable .pl-cell .plate-letters{font-size:11px;min-width:40px;padding:0 7px;border-left-width:1px}
+.tbl-empty{text-align:center;color:var(--txt3);padding:40px;font-size:14px}
+.export-btn{
+  padding:9px 16px;border-radius:6px;
+  border:1px solid var(--gold3);background:var(--goldb3);
+  color:var(--gold2);font-family:'Tajawal',sans-serif;font-size:12px;
+  cursor:pointer;transition:all .18s;white-space:nowrap;
+}
+.export-btn:hover{border-color:var(--gold);background:var(--gold4)}
+.day-group-header{
+  background:linear-gradient(90deg,rgba(200,168,75,0.08),transparent);
+  padding:8px 12px;
+}
+.day-group-header td{
+  font-size:11px;font-weight:700;color:var(--gold3);
+  letter-spacing:1px;border-bottom:none;
+}
+ 
+/* ── TOAST ── */
+.toast{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#1a1400,#0e0c00);
+  border:1px solid var(--goldb);border-radius:8px;
+  padding:11px 22px;color:var(--gold2);font-size:13px;font-weight:600;
+  z-index:2000;white-space:nowrap;pointer-events:none;
+  animation:tin .28s ease;
+}
+@keyframes tin{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+ 
+/* ── LOGIN SCREEN ── */
+#login-screen{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:#0c0b00;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='22' r='10' fill='none' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Ccircle cx='40' cy='22' r='5' fill='none' stroke='%23c8a84b' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='40' y1='32' x2='40' y2='56' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Cline x1='33' y1='44' x2='47' y2='44' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Cline x1='33' y1='52' x2='40' y2='52' stroke='%23c8a84b' stroke-width='1.2' opacity='0.18'/%3E%3Cpath d='M18 18 L21 15 L24 18 L21 21 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3Cpath d='M56 18 L59 15 L62 18 L59 21 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3Cpath d='M18 56 L21 53 L24 56 L21 59 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3Cpath d='M56 56 L59 53 L62 56 L59 59 Z' fill='none' stroke='%23c8a84b' stroke-width='0.8' opacity='0.14'/%3E%3C/svg%3E");
+  background-size:80px 80px;
+  animation:fadeIn .5s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes goldPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,168,75,0)}50%{box-shadow:0 0 0 8px rgba(200,168,75,0.08)}}
+ 
+.login-card{
+  width:420px;max-width:94vw;
+  background:linear-gradient(145deg,rgba(14,12,0,0.97),rgba(8,7,0,0.98));
+  border:1px solid var(--goldb);
+  border-radius:16px;
+  padding:40px 36px 36px;
+  position:relative;
+  animation:slideUp .5s ease .1s both,goldPulse 3s infinite;
+}
+.login-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  border-radius:16px 16px 0 0;
+}
+.login-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold3),transparent);
+  border-radius:0 0 16px 16px;
+}
+ 
+.login-logo{text-align:center;margin-bottom:32px}
+.login-key-circle{
+  width:76px;height:76px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  background:radial-gradient(circle,#201a00,#0a0900);
+  box-shadow:0 0 24px rgba(200,168,75,0.15),inset 0 0 20px rgba(200,168,75,0.05);
+}
+.login-brand{font-size:20px;font-weight:900;color:var(--gold2);letter-spacing:5px;line-height:1}
+.login-sub{font-size:8px;color:var(--txt3);letter-spacing:3px;margin-top:5px;text-transform:uppercase}
+.login-tagline{font-size:11px;color:var(--txt3);margin-top:10px;letter-spacing:.5px}
+.login-divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);margin:0 0 26px}
+ 
+.lf-group{margin-bottom:16px;position:relative}
+.lf-label{font-size:10px;color:var(--txt3);letter-spacing:1.5px;margin-bottom:7px;display:block;text-transform:uppercase}
+.lf-wrap{position:relative}
+.lf-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--txt3);font-size:15px;pointer-events:none;transition:color .2s}
+.lf-input{
+  width:100%;padding:12px 42px 12px 42px;
+  background:rgba(18,15,0,0.8);
+  border:1px solid var(--goldb2);border-radius:8px;
+  color:var(--txt);font-family:'Tajawal',sans-serif;font-size:14px;
+  outline:none;direction:ltr;text-align:left;
+  transition:all .2s;letter-spacing:.5px;
+}
+.lf-input:focus{border-color:var(--gold);background:rgba(22,18,0,0.9)}
+.lf-wrap:focus-within .lf-icon{color:var(--gold3)}
+.lf-input::placeholder{color:var(--txt3);letter-spacing:0;direction:rtl}
+.lf-input.error{border-color:rgba(200,80,80,0.6);animation:shake .3s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+ 
+.eye-btn{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;
+  color:var(--txt3);font-size:15px;padding:0;transition:color .2s;
+}
+.eye-btn:hover{color:var(--gold3)}
+ 
+.remember-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.remember-label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--txt2);user-select:none}
+.remember-check{
+  width:16px;height:16px;border:1px solid var(--goldb);border-radius:4px;
+  background:var(--goldb3);cursor:pointer;appearance:none;-webkit-appearance:none;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;transition:all .15s;flex-shrink:0;
+}
+.remember-check:checked{background:var(--gold3);border-color:var(--gold)}
+.remember-check:checked::after{content:'✓';position:absolute;color:#0a0900;font-size:10px;font-weight:900}
+ 
+.login-btn{
+  width:100%;padding:13px;
+  background:linear-gradient(135deg,#8a6020,#c8a84b,#a07030);
+  border:none;border-radius:8px;
+  color:#0a0800;font-family:'Tajawal',sans-serif;
+  font-size:15px;font-weight:900;cursor:pointer;
+  transition:all .22s;letter-spacing:1px;
+  position:relative;overflow:hidden;
+}
+.login-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.12) 50%,transparent 60%);
+  transform:translateX(-100%);transition:transform .4s;
+}
+.login-btn:hover::before{transform:translateX(100%)}
+.login-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(200,168,75,0.3)}
+.login-btn:active{transform:translateY(0)}
+.login-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+ 
+.login-error{
+  background:rgba(150,40,40,0.15);border:1px solid rgba(200,80,80,0.3);
+  border-radius:6px;padding:10px 14px;margin-bottom:16px;
+  color:#e88888;font-size:12px;text-align:center;
+  display:none;animation:slideUp .2s ease;
+}
+.login-error.show{display:block}
+ 
+.spin{
+  display:inline-block;width:16px;height:16px;
+  border:2px solid rgba(10,8,0,0.3);border-top-color:#0a0800;
+  border-radius:50%;animation:spinning .6s linear infinite;
+  vertical-align:middle;margin-left:6px;
+}
+@keyframes spinning{to{transform:rotate(360deg)}}
+ 
+.btn-logout{
+  display:flex;align-items:center;gap:7px;
+  padding:8px 14px;
+  background:transparent;
+  border:1px solid rgba(200,80,80,0.25);
+  border-radius:6px;
+  color:rgba(220,120,120,0.8);
+  font-family:'Tajawal',sans-serif;font-size:12px;
+  cursor:pointer;margin-right:auto;
+  transition:all .18s;white-space:nowrap;
+}
+.btn-logout:hover{border-color:rgba(200,80,80,0.5);color:#e88888;background:rgba(150,40,40,0.1)}
+ 
+.session-badge{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--txt3);
+  padding:6px 10px;background:var(--goldb3);
+  border:1px solid var(--goldb2);border-radius:20px;white-space:nowrap;
+}
+.session-dot{width:6px;height:6px;border-radius:50%;background:#7dca7d;flex-shrink:0;animation:puls 2s infinite}
+ 
+.screen-fade-out{animation:fadeOut .4s ease forwards}
+@keyframes fadeOut{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(1.02)}}
+ 
+/* ── CONFIRM MODAL ── */
+.confirm-modal{
+  background:linear-gradient(145deg,#0f0d00,#080700);
+  border:1px solid rgba(200,80,80,0.4);border-radius:12px;
+  padding:30px 28px 24px;width:360px;max-width:94vw;
+  position:relative;text-align:center;
+}
+.confirm-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(200,80,80,0.6),transparent);border-radius:12px 12px 0 0}
+.confirm-icon{font-size:38px;margin-bottom:14px;display:block}
+.confirm-title{font-size:16px;font-weight:800;color:var(--txt);margin-bottom:8px}
+.confirm-sub{font-size:12px;color:var(--txt3);margin-bottom:10px;line-height:1.6}
+.confirm-plate{
+  display:inline-flex;align-items:stretch;
+  border:2px solid var(--gold);border-radius:6px;
+  overflow:hidden;background:#f5f0e0;
+  height:32px;margin-bottom:18px;
+}
+.confirm-btns{display:flex;gap:10px}
+.confirm-cancel{
+  flex:1;padding:11px;border-radius:7px;
+  border:1px solid var(--goldb2);background:var(--goldb3);
+  color:var(--txt2);font-family:'Tajawal',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .18s;
+}
+.confirm-cancel:hover{border-color:var(--goldb);color:var(--gold2)}
+.confirm-ok{
+  flex:1;padding:11px;border-radius:7px;
+  border:1px solid rgba(200,80,80,0.4);background:rgba(150,40,40,0.15);
+  color:#e88888;font-family:'Tajawal',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .18s;
+}
+.confirm-ok:hover{background:rgba(150,40,40,0.3);border-color:rgba(200,80,80,0.6);color:#f5aaaa}
 </style>
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar" aria-label="الشريط الجانبي">
-      <div class="logo-wrap">
-        <div class="v-circle" aria-label="اختصار">
-          <!-- يمكنك وضع شعار هنا -->
-          <span class="plate-sa" role="img" aria-label="لوحة سعودية" style="height:28px;">
-            <span class="plate-letters"> VALI </span>
-            <span class="plate-nums"> VALET </span>
-          </span>
-        </div>
-        <div class="logo-name">VALI VALET</div>
-        <div class="logo-sub">نظام إدارة الركن الفاخر</div>
+<div class="app">
+ 
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar">
+    <div class="logo-wrap">
+      <div class="v-circle">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="14" r="8" stroke="#c8a84b" stroke-width="2" fill="none"/>
+          <circle cx="22" cy="14" r="4" stroke="#c8a84b" stroke-width="1.5" fill="none"/>
+          <text x="22" y="18.5" text-anchor="middle" font-family="Tajawal,sans-serif" font-size="8" font-weight="900" fill="#e2c97e">V</text>
+          <line x1="22" y1="22" x2="22" y2="38" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="30" x2="27" y2="30" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/>
+          <line x1="22" y1="35" x2="26" y2="35" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/>
+        </svg>
       </div>
-
-      <div class="sec" aria-label="إحصاءات">
-        <div class="sec-title">مختصر</div>
-        <div class="stat-box" title="التذاكر المفتوحة">
-          <div class="stat-box-left">
-            <span class="stat-icon">💼</span>
-            الاعتمادات
-          </div>
-          <div class="stat-num">12</div>
-        </div>
-        <div class="stat-box" title="طلبات قيد المعالجة">
-          <div class="stat-box-left">
-            <span class="stat-icon">🕒</span>
-            قيد الانتظار
-          </div>
-          <div class="stat-num s-received">7</div>
-        </div>
-        <div class="stat-box" title="تمت المعالجة">
-          <div class="stat-box-left">
-            <span class="stat-icon">✅</span>
-            مُغلقة
-          </div>
-          <div class="stat-num s-closed">5</div>
-        </div>
+      <div class="logo-name">VALI VALET</div>
+      <div class="logo-sub">VALET PARKING SERVICE</div>
+      <div class="logo-desc">إدارة خدمة الركن الفاخر</div>
+    </div>
+    <div class="divider"></div>
+ 
+    <div class="sec">
+      <div class="sec-title">الإحصائيات</div>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">🚗</span><span>نشط حالياً</span></div>
+        <div class="stat-num s-active" id="s-active">0</div>
       </div>
-
-      <div class="divider" aria-hidden="true"></div>
-
-      <div class="sec" aria-label="فلاتر">
-        <div class="sec-title" style="text-align:right">تصفية</div>
-        <button class="filter-item sel" data-filter="all">جميع المركبات</button>
-        <button class="filter-item" data-filter="vip">VIP</button>
-        <button class="filter-item" data-filter="new">جديد</button>
-        <button class="filter-item" data-filter="served">قيد الخدمة</button>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">⚙️</span><span>مستلم</span></div>
+        <div class="stat-num s-received" id="s-received">0</div>
       </div>
-
-      <div class="divider" aria-hidden="true"></div>
-
-      <div class="sec all-v-wrap" aria-label="إدارة">
-        <button class="all-v-btn" id="btn-add">
-          إضافة مركبة
-          <span class="kbd" aria-label="مختصر">N</span>
-        </button>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">✕</span><span>مغلق</span></div>
+        <div class="stat-num s-closed" id="s-closed">0</div>
       </div>
-
-      <div class="clock-sec" aria-label="الوقت">
-        <div class="clock-t" id="clock">12:34</div>
-        <div class="clock-d" id="date">الإثنين 1 جمادى الآخرة 1447</div>
+      <div class="stat-box">
+        <div class="stat-box-left"><span class="stat-icon">Σ</span><span>الإجمالي</span></div>
+        <div class="stat-num" id="s-total">0</div>
       </div>
-    </aside>
-
-    <main class="main" role="main">
-      <div class="topbar">
-        <button class="btn-new" id="btn-new">
-          🚗 إضافة طلب
-        </button>
-        <div class="search-wrap" aria-label="بحث">
-          <input class="search-input" id="search" placeholder="ابحث عن مركبة أو عميل ..." />
-          <span class="search-icon" aria-hidden="true">🔎</span>
-        </div>
+    </div>
+    <div class="divider"></div>
+ 
+    <div class="sec">
+      <div class="sec-title">عرض</div>
+      <div class="filter-list" id="filters">
+        <button class="filter-item sel" onclick="setFilter('all',this)">الكل</button>
+        <button class="filter-item" onclick="setFilter('active',this)">نشط</button>
+        <button class="filter-item" onclick="setFilter('received',this)">مستلم</button>
+        <button class="filter-item" onclick="setFilter('closed',this)">مغلق</button>
       </div>
-
-      <section class="cards-scroll" aria-label="البطاقات">
-        <div class="cards-grid" id="cardsGrid">
-          <!-- أمثلة بطاقات -->
-          <article class="tcard" tabindex="0" aria-label="بطاقة طلب 001">
-            <div class="th">
-              <span class="tnum">001</span>
-              <div class="badges" aria-label="حالة">
-                <span class="badge b-ready" title="جاهز">جاهز</span>
-              </div>
-            </div>
-            <div class="tb">
-              <div class="car-name">مرسيدس S-Class</div>
-              <span class="plate">ك-س ع 1234</span>
-              <span class="plate-country" style="margin-right:6px">SA</span>
-            </div>
-          </article>
-
-          <article class="tcard" tabindex="0" aria-label="بطاقة طلب 002">
-            <div class="th">
-              <span class="tnum">002</span>
-              <div class="badges" aria-label="حالة">
-                <span class="badge b-received" title="قيد الاستلام">قيد الاستلام</span>
-              </div>
-            </div>
-            <div class="tb">
-              <div class="car-name">بورش 911</div>
-              <span class="plate">ب-ج ك 9090</span>
-              <span class="plate-country" style="margin-right:6px">SA</span>
-            </div>
-          </article>
-
-          <!-- موازي: عدة بطاقات أخرى يمكن إضافتها بالشكل نفسه -->
-        </div>
-
-        <div class="empty-state" id="emptyState" style="display:none">
-          <div class="empty-icon" aria-hidden="true">🚗</div>
-          <div class="empty-title">لا توجد طلبات حالياً</div>
-          <div class="empty-sub">ابدأ بإضافة طلب جديد من الزر أدناه أو من لوحة الجهة اليمنى</div>
-        </div>
-      </section>
-    </main>
+    </div>
+    <div class="divider"></div>
+ 
+    <div class="all-v-wrap">
+      <button class="all-v-btn" onclick="openAllVehicles()">
+        <span>🗂 جميع المركبات</span>
+        <span style="color:var(--gold3)">←</span>
+      </button>
+    </div>
+ 
+    <div class="clock-sec">
+      <div class="clock-t" id="clk">--:--:--</div>
+      <div class="clock-d" id="clkd"></div>
+    </div>
   </div>
-
+ 
+  <!-- ── MAIN ── -->
+  <div class="main">
+    <div class="main-bg"></div>
+ 
+    <div class="topbar">
+      <button class="btn-new" onclick="openModal()">
+        <span style="font-size:18px;line-height:1">+</span> تذكرة جديدة
+      </button>
+      <div class="search-wrap">
+        <input class="search-input" id="srch" type="text" placeholder="بحث برقم التذكرة، اللوحة، العميل، الماركة..." oninput="render()">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="session-badge">
+        <span class="session-dot"></span>
+        <span id="session-user">Admin</span>
+      </div>
+      <button class="btn-logout" onclick="logout()">
+        <span>⏻</span> خروج
+      </button>
+    </div>
+ 
+    <div class="cards-scroll">
+      <div id="area"></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ── NEW TICKET MODAL ── -->
+<div class="overlay" id="modal" style="display:none" onclick="omclick(event)">
+  <div class="modal">
+    <div class="modal-title">🔑 تذكرة جديدة</div>
+    <button class="mclose" onclick="closeModal()">✕</button>
+    <div class="frow">
+      <div class="fg"><label class="fl">رقم الجهاز (Pager) *</label><input class="fi" id="fp" placeholder="مثل: 07"></div>
+      <div class="fg"><label class="fl">رقم العميل <span style="color:var(--txt3);font-size:9px">(اختياري)</span></label><input class="fi" id="fc" placeholder="0501234567"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">نوع السيارة</label><input class="fi" id="ft" placeholder="سيدان / SUV"></div>
+      <div class="fg"><label class="fl">الماركة</label><input class="fi" id="fb" placeholder="تويوتا / BMW"></div>
+    </div>
+    <div class="fg">
+      <label class="fl">رقم اللوحة</label>
+      <div style="display:flex;gap:0;border:1px solid var(--goldb2);border-radius:6px;overflow:hidden;background:#f5f0e0;">
+        <input class="fi" id="fpl-num" placeholder="1234" maxlength="4" style="flex:1;border:none;border-radius:0;background:#eee8cc;color:#0a0800;font-weight:800;font-size:15px;letter-spacing:2px;text-align:center;direction:ltr;" oninput="this.value=this.value.replace(/\D/g,'')">
+        <div style="width:2px;background:var(--gold3);flex-shrink:0;"></div>
+        <input class="fi" id="fpl-let" placeholder="أ ب ج" maxlength="5" style="flex:1;border:none;border-radius:0;background:#f5f0e0;color:#1a1200;font-weight:800;font-size:14px;letter-spacing:3px;text-align:center;direction:rtl;">
+      </div>
+    </div>
+    <div class="fg"><label class="fl">المنطقة</label><input class="fi" id="fz" placeholder="A1"></div>
+    <div class="fg"><label class="fl">ملاحظات</label><input class="fi" id="fn" placeholder="أي ملاحظات إضافية..."></div>
+    <button class="msubmit" onclick="create()">✓ إنشاء التذكرة</button>
+  </div>
+</div>
+ 
+<!-- ── TICKET DETAIL MODAL ── -->
+<div class="overlay" id="detail-modal" style="display:none" onclick="dmclick(event)">
+  <div class="detail-modal" id="detail-content"></div>
+</div>
+ 
+<!-- ── ALL VEHICLES MODAL ── -->
+<div class="overlay" id="all-vehicles-modal" style="display:none" onclick="avmclick(event)">
+  <div class="table-modal">
+    <div class="modal-title">🗂 جميع المركبات — السجل الكامل</div>
+    <button class="mclose" onclick="closeAllVehicles()">✕</button>
+ 
+    <div class="table-toolbar">
+      <input class="table-search" id="tbl-srch" type="text" placeholder="🔍 بحث باللوحة، الرقم، الماركة، العميل..." oninput="renderTable()">
+      <input type="date" class="date-filter" id="tbl-date" onchange="renderTable()" title="فلتر حسب اليوم">
+      <button class="export-btn" onclick="exportCSV()">📥 تصدير CSV</button>
+    </div>
+ 
+    <div id="tbl-area" style="overflow-x:auto">
+      <table class="vtable">
+        <thead>
+          <tr>
+            <th>رقم التذكرة</th>
+            <th>اللوحة</th>
+            <th>الماركة / النوع</th>
+            <th>العميل</th>
+            <th>الجهاز</th>
+            <th>المنطقة</th>
+            <th>الحالة</th>
+            <th>التاريخ</th>
+            <th>الوقت</th>
+          </tr>
+        </thead>
+        <tbody id="tbl-body"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;font-size:11px;color:var(--txt3);text-align:left" id="tbl-count"></div>
+  </div>
+</div>
+ 
+<!-- ── CONFIRM CLOSE MODAL ── -->
+<div class="overlay" id="confirm-modal" style="display:none" onclick="cancelConfirm(event)">
+  <div class="confirm-modal">
+    <span class="confirm-icon">🔒</span>
+    <div class="confirm-title">تأكيد إغلاق التذكرة</div>
+    <div class="confirm-sub" id="confirm-sub-text">هل أنت متأكد من إغلاق هذه التذكرة؟<br>لن تتمكن من تغيير حالتها بعد الإغلاق.</div>
+    <div class="confirm-plate" id="confirm-plate-preview">
+      <div class="plate-nums" id="confirm-plate-num">----</div>
+      <div class="plate-letters" id="confirm-plate-let">---</div>
+    </div>
+    <div class="confirm-btns">
+      <button class="confirm-cancel" onclick="closeConfirm()">إلغاء</button>
+      <button class="confirm-ok" id="confirm-ok-btn">🔒 تأكيد الإغلاق</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- ── LOGIN SCREEN ── -->
+<div id="login-screen">
+  <div class="login-card" id="login-card">
+    <div class="login-logo">
+      <div class="login-key-circle">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="15" r="9" stroke="#c8a84b" stroke-width="2" fill="none"/>
+          <circle cx="24" cy="15" r="4.5" stroke="#c8a84b" stroke-width="1.5" fill="none"/>
+          <text x="24" y="20" text-anchor="middle" font-family="Tajawal,sans-serif" font-size="9" font-weight="900" fill="#e2c97e">V</text>
+          <line x1="24" y1="24" x2="24" y2="42" stroke="#c8a84b" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="24" y1="32" x2="30" y2="32" stroke="#c8a84b" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="24" y1="38" x2="29" y2="38" stroke="#c8a84b" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="login-brand">VALI VALET</div>
+      <div class="login-sub">VALET PARKING SERVICE</div>
+      <div class="login-tagline">نظام إدارة الركن الفاخر</div>
+    </div>
+    <div class="login-divider"></div>
+    <div class="login-error" id="login-error">بيانات الدخول غير صحيحة، يرجى المحاولة مجدداً</div>
+    <div class="lf-group">
+      <label class="lf-label">اسم المستخدم</label>
+      <div class="lf-wrap">
+        <span class="lf-icon">👤</span>
+        <input class="lf-input" id="l-user" type="text" placeholder="أدخل اسم المستخدم" autocomplete="username" onkeydown="if(event.key==='Enter')document.getElementById('l-pass').focus()">
+      </div>
+    </div>
+    <div class="lf-group">
+      <label class="lf-label">كلمة المرور</label>
+      <div class="lf-wrap">
+        <span class="lf-icon">🔒</span>
+        <input class="lf-input" id="l-pass" type="password" placeholder="أدخل كلمة المرور" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+        <button class="eye-btn" id="eye-btn" onclick="toggleEye()" type="button" title="إظهار/إخفاء">👁</button>
+      </div>
+    </div>
+    <div class="remember-row">
+      <label class="remember-label">
+        <input type="checkbox" class="remember-check" id="l-remember">
+        تذكرني
+      </label>
+      <span style="font-size:10px;color:var(--txt3);letter-spacing:.5px">Admin Access Only</span>
+    </div>
+    <button class="login-btn" id="login-btn" onclick="doLogin()">دخول إلى النظام</button>
+    <div style="text-align:center;margin-top:20px">
+      <div style="font-size:10px;color:var(--txt3);letter-spacing:1px">🔐 SECURED · ADMIN ONLY · v2.1</div>
+    </div>
+  </div>
+</div>
+ 
 <script>
-  // وظيفة بسيطة للساعة والتاريخ
-  function updateClock(){
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2,'0');
-    const mins = String(now.getMinutes()).padStart(2,'0');
-    document.getElementById('clock').textContent = hours+':'+mins;
-    // تاريخ مختصر يمكن تحسينه حسب التقويم المحلي
+/* ══ STATE ══ */
+let tickets = [];
+let allLog = []; // permanent historical log — never deleted
+let cnt = 1;
+let filter = 'all';
+ 
+/* Load from localStorage */
+function loadData(){
+  try {
+    const t = localStorage.getItem('vv_tickets');
+    if(t) tickets = JSON.parse(t);
+    const l = localStorage.getItem('vv_log');
+    if(l) allLog = JSON.parse(l);
+    const c = localStorage.getItem('vv_cnt');
+    if(c) cnt = parseInt(c)||1;
+  } catch(e){}
+}
+ 
+function saveData(){
+  try {
+    localStorage.setItem('vv_tickets', JSON.stringify(tickets));
+    localStorage.setItem('vv_log', JSON.stringify(allLog));
+    localStorage.setItem('vv_cnt', String(cnt));
+  } catch(e){}
+}
+ 
+/* ══ AUTH ══ */
+async function sha256(str){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+const SESSION_KEY = 'vv_auth_token';
+const SESSION_VAL = 'vv_'+ btoa('valivalet:authenticated:'+navigator.userAgent.slice(0,20));
+function isAuthenticated(){ return sessionStorage.getItem(SESSION_KEY)===SESSION_VAL || localStorage.getItem(SESSION_KEY)===SESSION_VAL }
+function setSession(r){ if(r) localStorage.setItem(SESSION_KEY,SESSION_VAL); else sessionStorage.setItem(SESSION_KEY,SESSION_VAL) }
+function clearSession(){ sessionStorage.removeItem(SESSION_KEY); localStorage.removeItem(SESSION_KEY) }
+ 
+async function doLogin(){
+  const userVal = document.getElementById('l-user').value.trim();
+  const passVal = document.getElementById('l-pass').value;
+  const remember = document.getElementById('l-remember').checked;
+  const btn = document.getElementById('login-btn');
+  const errEl = document.getElementById('login-error');
+  if(!userVal||!passVal){ showLoginError('يرجى إدخال اسم المستخدم وكلمة المرور'); return }
+  btn.disabled=true;
+  btn.innerHTML='جاري التحقق <span class="spin"></span>';
+  errEl.classList.remove('show');
+  await new Promise(r=>setTimeout(r,800));
+  const passHash = await sha256(passVal);
+  const correctHash = await sha256('vali');
+  if(userVal==='valivalet' && passHash===correctHash){
+    setSession(remember);
+    document.getElementById('session-user').textContent=userVal;
+    const ls=document.getElementById('login-screen');
+    ls.classList.add('screen-fade-out');
+    setTimeout(()=>{ls.style.display='none'},400);
+    toast(`✓ مرحباً ${userVal} — تم تسجيل الدخول`);
+  } else {
+    btn.disabled=false;
+    btn.innerHTML='دخول إلى النظام';
+    showLoginError('بيانات الدخول غير صحيحة');
+    ['l-user','l-pass'].forEach(id=>{
+      const el=document.getElementById(id);
+      el.classList.add('error');
+      setTimeout(()=>el.classList.remove('error'),600);
+    });
   }
-  updateClock();
-  setInterval(updateClock, 60000);
-
-  // مثال بسيط لإظهار/إخفاء emptyState بناءً على وجود بطاقات
-  const grid = document.getElementById('cardsGrid');
-  const empty = document.getElementById('emptyState');
-  function refreshEmpty(){
-    if(grid.children.length === 0){
-      empty.style.display = 'flex';
-    } else {
-      empty.style.display = 'none';
-    }
+}
+function showLoginError(msg){ const el=document.getElementById('login-error'); el.textContent=msg; el.classList.add('show') }
+function toggleEye(){ const p=document.getElementById('l-pass'),btn=document.getElementById('eye-btn'); if(p.type==='password'){p.type='text';btn.textContent='🙈'}else{p.type='password';btn.textContent='👁'} }
+function logout(){
+  clearSession();
+  ['l-user','l-pass'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('l-remember').checked=false;
+  document.getElementById('login-error').classList.remove('show');
+  document.getElementById('login-btn').innerHTML='دخول إلى النظام';
+  document.getElementById('login-btn').disabled=false;
+  document.getElementById('l-pass').type='password';
+  document.getElementById('eye-btn').textContent='👁';
+  const ls=document.getElementById('login-screen');
+  ls.style.display='flex'; ls.classList.remove('screen-fade-out');
+  ls.style.animation='none'; ls.offsetHeight; ls.style.animation='fadeIn .4s ease';
+  toast('👋 تم تسجيل الخروج بنجاح');
+}
+ 
+/* ══ FILTERS ══ */
+function setFilter(f,el){
+  filter=f;
+  document.querySelectorAll('.filter-item').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  render();
+}
+function getData(){
+  const q=(document.getElementById('srch').value||'').toLowerCase();
+  return tickets.filter(t=>{
+    if(filter!=='all'&&t.status!==filter)return false;
+    if(!q)return true;
+    return(t.id+(t.plateNum||'')+(t.plateLet||'')+(t.client||'')+t.brand+t.pager).toLowerCase().includes(q);
+  });
+}
+function sLabel(s){return{active:'نشط',received:'مستلم',closed:'مغلق'}[s]||s}
+function sClass(s){return{active:'b-active',received:'b-received',closed:'b-closed'}[s]||''}
+ 
+/* ══ RENDER CARDS ══ */
+function render(){
+  const data=getData();
+  updateStats();
+  const area=document.getElementById('area');
+  if(!data.length){
+    area.innerHTML=`<div class="empty-state">
+      <div class="empty-icon">🔑</div>
+      <div class="empty-title">لا توجد تذاكر</div>
+      <div class="empty-sub">اضغط <span onclick="openModal()">+ تذكرة جديدة</span> للبدء</div>
+    </div>`;
+    return;
   }
-  refreshEmpty();
-  // إضافة بطاقة بسيطة عند الضغط على btn-add
-  document.getElementById('btn-add').addEventListener('click', () => {
-    const card = document.createElement('article');
-    card.className = 'tcard';
-    card.setAttribute('tabindex','0');
-    card.setAttribute('aria-label','بطاقة طلب جديد');
-    card.innerHTML = `
+  area.innerHTML=`<div class="cards-grid">${data.map(t=>`
+    <div class="tcard${t.ready?' ready-card':''}" onclick="openDetail('${t.id}')">
       <div class="th">
-        <span class="tnum">00${grid.children.length+1}</span>
+        <div>
+          <div class="tnum">${t.id}</div>
+          <div class="tpager">جهاز: ${t.pager}</div>
+        </div>
         <div class="badges">
-          <span class="badge b-active" title="قيد التنفيذ">قيد التنفيذ</span>
+          <span class="badge ${sClass(t.status)}">${sLabel(t.status)}</span>
+          ${t.ready?'<span class="badge b-ready">جاهزة ✓</span>':''}
         </div>
       </div>
       <div class="tb">
-        <div class="car-name">مثال مركبة</div>
-        <span class="plate">ع-د 0000</span>
-        <span class="plate-country" style="margin-right:6px">SA</span>
+        <div class="car-name">${t.brand} — ${t.type}</div>
+        <div class="plate-sa">
+          <div class="plate-nums">${t.plateNum||'----'}</div>
+          <div class="plate-letters">${t.plateLet||'---'}</div>
+        </div>
+        <div class="dets">
+          <div class="det"><div class="det-l">العميل</div><div class="det-v">${t.client||'—'}</div></div>
+          <div class="det"><div class="det-l">المنطقة</div><div class="det-v">${t.zone}</div></div>
+        </div>
       </div>
-    `;
-    grid.appendChild(card);
-    refreshEmpty();
+      <div class="tf">
+        <div class="tnote">${t.notes||'لا توجد ملاحظات'}</div>
+        <div class="acts">
+          ${t.status!=='closed'?`
+            <button class="abtn rdy" onclick="event.stopPropagation();toggleReady('${t.id}')">${t.ready?'إلغاء':'جاهزة'}</button>
+            <button class="abtn" onclick="event.stopPropagation();${t.status==='active'?`nextStatus('${t.id}')`:`confirmClose('${t.id}')`}">${t.status==='active'?'استلام':'إغلاق'}</button>
+          `:'<span style="font-size:10px;color:var(--txt3)">مغلقة</span>'}
+        </div>
+      </div>
+    </div>
+  `).join('')}</div>`;
+}
+ 
+/* ══ DETAIL MODAL ══ */
+function openDetail(id){
+  const t = tickets.find(x=>x.id===id);
+  if(!t) return;
+  const dc = document.getElementById('detail-content');
+  dc.innerHTML=`
+    <div class="modal-title">🔑 ${t.id} — تفاصيل التذكرة</div>
+    <button class="mclose" onclick="closeDetail()">✕</button>
+ 
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:4px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:11px;color:var(--txt3);margin-bottom:6px">لوحة المركبة</div>
+        <div class="detail-plate-big">
+          <div class="plate-nums">${t.plateNum||'----'}</div>
+          <div class="plate-letters">${t.plateLet||'---'}</div>
+        </div>
+      </div>
+      <div>
+        <span class="badge ${sClass(t.status)}" style="font-size:13px;padding:6px 16px">${sLabel(t.status)}</span>
+        ${t.ready?'<span class="badge b-ready" style="font-size:13px;padding:6px 16px;margin-right:8px">جاهزة ✓</span>':''}
+      </div>
+    </div>
+ 
+    <div class="drow">
+      <div class="dfield"><div class="dfield-l">الماركة</div><div class="dfield-v">${t.brand}</div></div>
+      <div class="dfield"><div class="dfield-l">النوع</div><div class="dfield-v">${t.type}</div></div>
+      <div class="dfield"><div class="dfield-l">رقم الجهاز</div><div class="dfield-v">${t.pager}</div></div>
+      <div class="dfield"><div class="dfield-l">العميل</div><div class="dfield-v">${t.client||'—'}</div></div>
+      <div class="dfield"><div class="dfield-l">المنطقة</div><div class="dfield-v">${t.zone}</div></div>
+      <div class="dfield"><div class="dfield-l">التاريخ والوقت</div><div class="dfield-v" style="font-size:12px">${t.createdAt||'—'}</div></div>
+      ${t.notes?`<div class="dfield dfield-full"><div class="dfield-l">ملاحظات</div><div class="dfield-v">${t.notes}</div></div>`:''}
+    </div>
+ 
+    ${t.status!=='closed'?`
+    <div class="status-actions">
+      <button class="status-btn rdy-btn" onclick="toggleReady('${t.id}');refreshDetail('${t.id}')">${t.ready?'❌ إلغاء الجاهزية':'✅ جاهزة للتسليم'}</button>
+      <button class="status-btn next-btn" onclick="${t.status==='active'?`nextStatus('${t.id}');refreshDetail('${t.id}')`:`confirmClose('${t.id}')`}">${t.status==='active'?'📦 تحويل لـ مستلم':'🔒 إغلاق التذكرة'}</button>
+    </div>`:`<div style="text-align:center;padding:14px;font-size:12px;color:var(--txt3)">🔒 التذكرة مغلقة</div>`}
+  `;
+  document.getElementById('detail-modal').style.display='flex';
+}
+function refreshDetail(id){ openDetail(id) }
+function closeDetail(){ document.getElementById('detail-modal').style.display='none' }
+function dmclick(e){ if(e.target===document.getElementById('detail-modal')) closeDetail() }
+ 
+/* ══ CONFIRM CLOSE ══ */
+let pendingCloseId = null;
+function confirmClose(id){
+  const t = tickets.find(x=>x.id===id);
+  if(!t) return;
+  pendingCloseId = id;
+  document.getElementById('confirm-plate-num').textContent = t.plateNum||'----';
+  document.getElementById('confirm-plate-let').textContent = t.plateLet||'---';
+  document.getElementById('confirm-sub-text').innerHTML = `هل أنت متأكد من إغلاق التذكرة <strong style="color:var(--gold2)">${id}</strong>؟<br><span style="color:var(--txt3)">لن تتمكن من تغيير حالتها بعد الإغلاق.</span>`;
+  document.getElementById('confirm-ok-btn').onclick = function(){ doClose(); };
+  document.getElementById('confirm-modal').style.display='flex';
+}
+function doClose(){
+  if(!pendingCloseId) return;
+  const t = tickets.find(x=>x.id===pendingCloseId);
+  if(t){ t.status='closed'; t.ready=false; updateLog(t); saveData(); render(); toast(`🔒 تم إغلاق ${pendingCloseId}`); }
+  closeConfirm();
+  closeDetail();
+}
+function closeConfirm(){ document.getElementById('confirm-modal').style.display='none'; pendingCloseId=null; }
+function cancelConfirm(e){ if(e.target===document.getElementById('confirm-modal')) closeConfirm(); }
+ 
+/* ══ TICKET ACTIONS ══ */
+function toggleReady(id){
+  const t=tickets.find(x=>x.id===id);
+  if(t){
+    t.ready=!t.ready;
+    updateLog(t);
+    saveData();render();
+    toast(t.ready?`✓ ${id} جاهزة للتسليم`:`${id} لم تعد جاهزة`);
+  }
+}
+function nextStatus(id){
+  const t=tickets.find(x=>x.id===id);
+  if(!t)return;
+  if(t.status==='active'){
+    t.status='received';t.ready=false;
+    updateLog(t);saveData();render();
+    toast(`📦 تم استلام ${id}`);
+  } else if(t.status==='received'){
+    // Show confirm dialog instead of closing directly
+    confirmClose(id);
+  }
+}
+ 
+/* ══ UPDATE LOG RECORD ══ */
+function updateLog(t){
+  const idx = allLog.findIndex(l=>l.id===t.id);
+  if(idx>=0) allLog[idx] = {...allLog[idx], status:t.status, ready:t.ready};
+}
+ 
+function updateStats(){
+  document.getElementById('s-total').textContent=tickets.length;
+  document.getElementById('s-active').textContent=tickets.filter(t=>t.status==='active').length;
+  document.getElementById('s-received').textContent=tickets.filter(t=>t.status==='received').length;
+  document.getElementById('s-closed').textContent=tickets.filter(t=>t.status==='closed').length;
+}
+ 
+/* ══ NEW TICKET MODAL ══ */
+function openModal(){ document.getElementById('modal').style.display='flex' }
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+  ['fp','fc','ft','fb','fpl-num','fpl-let','fz','fn'].forEach(i=>document.getElementById(i).value='');
+}
+function omclick(e){ if(e.target===document.getElementById('modal')) closeModal() }
+ 
+function create(){
+  const p=document.getElementById('fp').value.trim();
+  if(!p){ toast('⚠️ رقم الجهاز مطلوب'); return }
+  const now = new Date();
+  const createdAt = `${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  const dateKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+ 
+  const id='VL-'+String(cnt++).padStart(3,'0');
+  const entry = {
+    id, pager:p,
+    client: document.getElementById('fc').value.trim()||'',
+    type: document.getElementById('ft').value.trim()||'سيدان',
+    brand: document.getElementById('fb').value.trim()||'غير محدد',
+    plateNum: document.getElementById('fpl-num').value.trim()||'----',
+    plateLet: document.getElementById('fpl-let').value.trim()||'---',
+    zone: document.getElementById('fz').value.trim()||'A1',
+    notes: document.getElementById('fn').value.trim(),
+    status:'active', ready:false,
+    createdAt, dateKey
+  };
+  tickets.unshift(entry);
+  allLog.unshift({...entry}); // add to permanent log
+  saveData();
+  closeModal();render();
+  toast(`✓ تم إنشاء التذكرة ${id}`);
+}
+ 
+/* ══ ALL VEHICLES MODAL ══ */
+function openAllVehicles(){
+  // Set today's date as default filter
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  document.getElementById('tbl-date').value = todayStr;
+  renderTable();
+  document.getElementById('all-vehicles-modal').style.display='flex';
+}
+function closeAllVehicles(){ document.getElementById('all-vehicles-modal').style.display='none' }
+function avmclick(e){ if(e.target===document.getElementById('all-vehicles-modal')) closeAllVehicles() }
+ 
+function renderTable(){
+  const q = (document.getElementById('tbl-srch').value||'').toLowerCase();
+  const dateFilter = document.getElementById('tbl-date').value; // YYYY-MM-DD or ''
+ 
+  let data = [...allLog].filter(t=>{
+    if(dateFilter && t.dateKey !== dateFilter) return false;
+    if(!q) return true;
+    return (t.id+(t.plateNum||'')+(t.plateLet||'')+(t.client||'')+t.brand+(t.pager||'')).toLowerCase().includes(q);
   });
-
-  // بحث بسيط (فلترة على اسم المركبة)
-  document.getElementById('search').addEventListener('input', (e) => {
-    const q = e.target.value.toLowerCase();
-    Array.from(grid.children).forEach(card => {
-      const text = (card.querySelector('.car-name')?.textContent || '').toLowerCase();
-      card.style.display = text.includes(q) ? '' : 'none';
+ 
+  const tbody = document.getElementById('tbl-body');
+  document.getElementById('tbl-count').textContent = `إجمالي النتائج: ${data.length} مركبة`;
+ 
+  if(!data.length){
+    tbody.innerHTML=`<tr><td colspan="9" class="tbl-empty">لا توجد سجلات لهذا اليوم</td></tr>`;
+    return;
+  }
+ 
+  // Group by date
+  const groups = {};
+  data.forEach(t=>{
+    const dk = t.dateKey||'غير محدد';
+    if(!groups[dk]) groups[dk]=[];
+    groups[dk].push(t);
+  });
+ 
+  const keys = Object.keys(groups).sort((a,b)=>b.localeCompare(a));
+  let html='';
+  keys.forEach(dk=>{
+    // Day header row if no date filter (showing multiple days)
+    if(!dateFilter && keys.length>1){
+      html+=`<tr class="day-group-header"><td colspan="9">📅 ${dk.replace(/-/g,'/')} — ${groups[dk].length} مركبة</td></tr>`;
+    }
+    groups[dk].forEach(t=>{
+      const timePart = t.createdAt ? t.createdAt.split(' ')[1]||'—' : '—';
+      html+=`<tr onclick="closeAllVehicles();openDetail('${t.id}')">
+        <td style="color:var(--gold2);font-weight:700">${t.id}</td>
+        <td>
+          <div class="pl-cell">
+            <div class="plate-nums">${t.plateNum||'----'}</div>
+            <div class="plate-letters">${t.plateLet||'---'}</div>
+          </div>
+        </td>
+        <td>${t.brand} / ${t.type}</td>
+        <td>${t.client||'—'}</td>
+        <td style="color:var(--gold3)">${t.pager}</td>
+        <td>${t.zone}</td>
+        <td><span class="badge ${sClass(t.status)}">${sLabel(t.status)}</span></td>
+        <td style="font-size:11px;direction:ltr">${t.dateKey||'—'}</td>
+        <td style="font-size:11px;direction:ltr">${timePart}</td>
+      </tr>`;
     });
-    refreshEmpty();
   });
-
-  // فِلتر بسيط (مثلاً تفعيل/إخفاء حسب فئة افتراضية)
-  document.querySelectorAll('.filter-item').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-item').forEach(b => b.classList.remove('sel'));
-      btn.classList.add('sel');
-      // تطبيق فلاتر إضافية حسب data-filter إذا أردت
-    });
+  tbody.innerHTML=html;
+}
+ 
+/* ══ EXPORT CSV ══ */
+function exportCSV(){
+  const q = (document.getElementById('tbl-srch').value||'').toLowerCase();
+  const dateFilter = document.getElementById('tbl-date').value;
+  const data = allLog.filter(t=>{
+    if(dateFilter && t.dateKey !== dateFilter) return false;
+    if(!q) return true;
+    return (t.id+(t.plateNum||'')+(t.plateLet||'')+(t.client||'')+t.brand+(t.pager||'')).toLowerCase().includes(q);
   });
+ 
+  if(!data.length){ toast('⚠️ لا توجد بيانات للتصدير'); return; }
+ 
+  const headers = ['رقم التذكرة','اللوحة الحروف','اللوحة الأرقام','الماركة','النوع','العميل','الجهاز','المنطقة','الحالة','التاريخ','الوقت','ملاحظات'];
+  const rows = data.map(t=>{
+    const timePart = t.createdAt ? t.createdAt.split(' ')[1]||'' : '';
+    return [t.id, t.plateLet||'', t.plateNum||'', t.brand, t.type, t.client||'', t.pager, t.zone, sLabel(t.status), t.dateKey||'', timePart, t.notes||'']
+      .map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',');
+  });
+ 
+  const csv = '\uFEFF' + headers.map(h=>`"${h}"`).join(',') + '\n' + rows.join('\n');
+ 
+  // Use data URI — avoids blank page issue in some browsers
+  const dataUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  const a = document.createElement('a');
+  a.setAttribute('href', dataUri);
+  a.setAttribute('download', `valivalet_${dateFilter||'all'}.csv`);
+  a.style.display='none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  toast('📥 تم تصدير الملف بنجاح');
+}
+ 
+/* ══ TOAST ══ */
+function toast(msg){
+  const el=document.createElement('div');
+  el.className='toast';el.textContent=msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),2800);
+}
+ 
+/* ══ CLOCK ══ */
+function tick(){
+  const n=new Date();
+  document.getElementById('clk').textContent=[n.getHours(),n.getMinutes(),n.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':');
+  document.getElementById('clkd').textContent=`${n.getFullYear()}/${String(n.getMonth()+1).padStart(2,'0')}/${String(n.getDate()).padStart(2,'0')}`;
+}
+tick();setInterval(tick,1000);
+ 
+/* ══ BOOT ══ */
+loadData();
+if(isAuthenticated()){
+  document.getElementById('login-screen').style.display='none';
+  toast('✓ مرحباً بعودتك — الجلسة نشطة');
+}
+render();
 </script>
 </body>
 </html>
