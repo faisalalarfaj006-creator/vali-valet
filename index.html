@@ -260,9 +260,43 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   border:1px solid var(--goldb2);border-radius:6px;
   color:var(--txt);font-family:'Tajawal',sans-serif;font-size:13px;
   outline:none;direction:rtl;transition:border .18s;
+  appearance:none;-webkit-appearance:none;
 }
 .fi:focus{border-color:var(--goldb)}
 .fi::placeholder{color:var(--txt3)}
+ 
+/* SELECT dropdown styling */
+select.fi{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a4a20' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:left 12px center;
+  padding-left:32px;
+  cursor:pointer;
+}
+select.fi option{
+  background:#0f0d00;
+  color:var(--txt);
+  font-family:'Tajawal',sans-serif;
+}
+select.fi option:disabled{color:var(--txt3)}
+ 
+/* Phone input */
+.phone-wrap{position:relative}
+.phone-prefix{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  font-size:12px;font-weight:700;color:var(--gold3);
+  pointer-events:none;letter-spacing:.5px;
+  border-left:1px solid var(--goldb2);
+  padding-left:8px;
+  line-height:1;
+}
+.fi.phone-input{
+  padding-right:58px;
+  direction:ltr;
+  text-align:left;
+  letter-spacing:1px;
+}
+ 
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .msubmit{
   width:100%;margin-top:6px;padding:12px;
@@ -472,7 +506,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   width:16px;height:16px;border:1px solid var(--goldb);border-radius:4px;
   background:var(--goldb3);cursor:pointer;appearance:none;-webkit-appearance:none;
   display:flex;align-items:center;justify-content:center;
-  position:relative;transition:all .15s;flex-shrink:0;
+  position:relative;transition:all .15px;flex-shrink:0;
 }
 .remember-check:checked{background:var(--gold3);border-color:var(--gold)}
 .remember-check:checked::after{content:'✓';position:absolute;color:#0a0900;font-size:10px;font-weight:900}
@@ -669,14 +703,85 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
   <div class="modal">
     <div class="modal-title">🔑 تذكرة جديدة</div>
     <button class="mclose" onclick="closeModal()">✕</button>
-    <div class="frow">
-      <div class="fg"><label class="fl">رقم الجهاز (Pager) *</label><input class="fi" id="fp" placeholder="مثل: 07"></div>
-      <div class="fg"><label class="fl">رقم العميل <span style="color:var(--txt3);font-size:9px">(اختياري)</span></label><input class="fi" id="fc" placeholder="0501234567"></div>
+ 
+    <div class="fg">
+      <label class="fl">رقم الجهاز (Pager) *</label>
+      <input class="fi" id="fp" placeholder="مثل: 07">
     </div>
+ 
     <div class="frow">
-      <div class="fg"><label class="fl">نوع السيارة</label><input class="fi" id="ft" placeholder="سيدان / SUV"></div>
-      <div class="fg"><label class="fl">الماركة</label><input class="fi" id="fb" placeholder="تويوتا / BMW"></div>
+      <div class="fg">
+        <label class="fl">نوع السيارة</label>
+        <select class="fi" id="ft">
+          <option value="" disabled selected>— اختر النوع —</option>
+          <option>سيدان</option>
+          <option>جيب</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">الماركة</label>
+        <select class="fi" id="fb">
+          <option value="" disabled selected>— اختر الماركة —</option>
+          <optgroup label="— يابانية —">
+            <option>تويوتا</option>
+            <option>لكزس</option>
+            <option>نيسان</option>
+            <option>إنفينيتي</option>
+            <option>هوندا</option>
+            <option>مازدا</option>
+            <option>ميتسوبيشي</option>
+          </optgroup>
+          <optgroup label="— كورية —">
+            <option>هيونداي</option>
+            <option>كيا</option>
+            <option>جينيسيس</option>
+          </optgroup>
+          <optgroup label="— أمريكية —">
+            <option>فورد</option>
+            <option>شيفروليه</option>
+            <option>كاديلاك</option>
+            <option>جيب</option>
+            <option>لينكولن</option>
+            <option>دودج</option>
+            <option>رام</option>
+            <option>GMC</option>
+            <option>تسلا</option>
+          </optgroup>
+          <optgroup label="— ألمانية —">
+            <option>BMW</option>
+            <option>مرسيدس</option>
+            <option>أودي</option>
+            <option>فولكس واجن</option>
+            <option>بورش</option>
+            <option>مايباخ</option>
+          </optgroup>
+          <optgroup label="— بريطانية —">
+            <option>رولز رويس</option>
+            <option>بنتلي</option>
+            <option>رنج روفر</option>
+            <option>جاكوار</option>
+            <option>أستون مارتن</option>
+            <option>McLaren</option>
+          </optgroup>
+          <optgroup label="— إيطالية —">
+            <option>فيراري</option>
+            <option>لامبورغيني</option>
+            <option>مازيراتي</option>
+          </optgroup>
+          <optgroup label="— سويدية —">
+            <option>فولفو</option>
+          </optgroup>
+          <optgroup label="— صينية —">
+            <option>BYD</option>
+            <option>هافال</option>
+            <option>MG</option>
+            <option>شيري</option>
+          </optgroup>
+          <option>أخرى</option>
+        </select>
+      </div>
     </div>
+ 
     <div class="fg">
       <label class="fl">رقم اللوحة</label>
       <div style="display:flex;gap:0;border:1px solid var(--goldb2);border-radius:6px;overflow:hidden;background:#f5f0e0;">
@@ -685,8 +790,12 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
         <input class="fi" id="fpl-let" placeholder="أ ب ج" maxlength="5" style="flex:1;border:none;border-radius:0;background:#f5f0e0;color:#1a1200;font-weight:800;font-size:14px;letter-spacing:3px;text-align:center;direction:rtl;">
       </div>
     </div>
-    <div class="fg"><label class="fl">المنطقة</label><input class="fi" id="fz" placeholder="A1"></div>
-    <div class="fg"><label class="fl">ملاحظات</label><input class="fi" id="fn" placeholder="أي ملاحظات إضافية..."></div>
+ 
+    <div class="fg">
+      <label class="fl">ملاحظات</label>
+      <input class="fi" id="fn" placeholder="أي ملاحظات إضافية...">
+    </div>
+ 
     <button class="msubmit" onclick="create()">✓ إنشاء التذكرة</button>
   </div>
 </div>
@@ -703,7 +812,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
     <button class="mclose" onclick="closeAllVehicles()">✕</button>
  
     <div class="table-toolbar">
-      <input class="table-search" id="tbl-srch" type="text" placeholder="🔍 بحث باللوحة، الرقم، الماركة، العميل..." oninput="renderTable()">
+      <input class="table-search" id="tbl-srch" type="text" placeholder="🔍 بحث باللوحة، الرقم، الماركة..." oninput="renderTable()">
       <input type="date" class="date-filter" id="tbl-date" onchange="renderTable()" title="فلتر حسب اليوم">
       <button class="export-btn" onclick="exportCSV()">📥 تصدير CSV</button>
     </div>
@@ -715,9 +824,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
             <th>رقم التذكرة</th>
             <th>اللوحة</th>
             <th>الماركة / النوع</th>
-            <th>العميل</th>
             <th>الجهاز</th>
-            <th>المنطقة</th>
             <th>الحالة</th>
             <th>التاريخ</th>
             <th>الوقت</th>
@@ -797,13 +904,15 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);dire
 </div>
  
 <script>
+/* ══ DATA LISTS ══ */
+const BRANDS = ['تويوتا','لكزس','نيسان','إنفينيتي','هوندا','أكيورا','مازدا','ميتسوبيشي','سوبارو','هيونداي','كيا','جينيسيس','فورد','شيفروليه','كاديلاك','جيب','لينكولن','دودج','رام','GMC','تسلا','BMW','مرسيدس','أودي','فولكس واجن','بورش','مايباخ','رولز رويس','بنتلي','لاند روفر','رنج روفر','جاكوار','أستون مارتن','McLaren','فيراري','لامبورغيني','مازيراتي','ألفا روميو','فولفو','بولستار','BYD','هافال','MG','شيري','جيلي','Zeekr','أخرى'];
+ 
 /* ══ STATE ══ */
 let tickets = [];
-let allLog = []; // permanent historical log — never deleted
+let allLog = [];
 let cnt = 1;
 let filter = 'all';
  
-/* Load from localStorage */
 function loadData(){
   try {
     const t = localStorage.getItem('vv_tickets');
@@ -821,6 +930,13 @@ function saveData(){
     localStorage.setItem('vv_log', JSON.stringify(allLog));
     localStorage.setItem('vv_cnt', String(cnt));
   } catch(e){}
+}
+ 
+/* ══ PHONE FORMAT ══ */
+function formatPhone(raw){
+  if(!raw) return '';
+  // Store raw digits, display with +966
+  return '+966' + raw;
 }
  
 /* ══ AUTH ══ */
@@ -932,8 +1048,8 @@ function render(){
           <div class="plate-letters">${t.plateLet||'---'}</div>
         </div>
         <div class="dets">
-          <div class="det"><div class="det-l">العميل</div><div class="det-v">${t.client||'—'}</div></div>
-          <div class="det"><div class="det-l">المنطقة</div><div class="det-v">${t.zone}</div></div>
+          <div class="det"><div class="det-l">الجهاز</div><div class="det-v">${t.pager}</div></div>
+          <div class="det"><div class="det-l">الحالة</div><div class="det-v">${sLabel(t.status)}</div></div>
         </div>
       </div>
       <div class="tf">
@@ -976,8 +1092,6 @@ function openDetail(id){
       <div class="dfield"><div class="dfield-l">الماركة</div><div class="dfield-v">${t.brand}</div></div>
       <div class="dfield"><div class="dfield-l">النوع</div><div class="dfield-v">${t.type}</div></div>
       <div class="dfield"><div class="dfield-l">رقم الجهاز</div><div class="dfield-v">${t.pager}</div></div>
-      <div class="dfield"><div class="dfield-l">العميل</div><div class="dfield-v">${t.client||'—'}</div></div>
-      <div class="dfield"><div class="dfield-l">المنطقة</div><div class="dfield-v">${t.zone}</div></div>
       <div class="dfield"><div class="dfield-l">التاريخ والوقت</div><div class="dfield-v" style="font-size:12px">${t.createdAt||'—'}</div></div>
       ${t.notes?`<div class="dfield dfield-full"><div class="dfield-l">ملاحظات</div><div class="dfield-v">${t.notes}</div></div>`:''}
     </div>
@@ -1034,12 +1148,10 @@ function nextStatus(id){
     updateLog(t);saveData();render();
     toast(`📦 تم استلام ${id}`);
   } else if(t.status==='received'){
-    // Show confirm dialog instead of closing directly
     confirmClose(id);
   }
 }
  
-/* ══ UPDATE LOG RECORD ══ */
 function updateLog(t){
   const idx = allLog.findIndex(l=>l.id===t.id);
   if(idx>=0) allLog[idx] = {...allLog[idx], status:t.status, ready:t.ready};
@@ -1056,13 +1168,18 @@ function updateStats(){
 function openModal(){ document.getElementById('modal').style.display='flex' }
 function closeModal(){
   document.getElementById('modal').style.display='none';
-  ['fp','fc','ft','fb','fpl-num','fpl-let','fz','fn'].forEach(i=>document.getElementById(i).value='');
+  ['fp','fpl-num','fpl-let','fn'].forEach(i=>document.getElementById(i).value='');
+  ['ft','fb'].forEach(i=>{ document.getElementById(i).selectedIndex=0; });
 }
 function omclick(e){ if(e.target===document.getElementById('modal')) closeModal() }
  
 function create(){
   const p=document.getElementById('fp').value.trim();
   if(!p){ toast('⚠️ رقم الجهاز مطلوب'); return }
+ 
+  const brand = document.getElementById('fb').value || 'غير محدد';
+  const type  = document.getElementById('ft').value || 'غير محدد';
+ 
   const now = new Date();
   const createdAt = `${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
   const dateKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
@@ -1070,18 +1187,15 @@ function create(){
   const id='VL-'+String(cnt++).padStart(3,'0');
   const entry = {
     id, pager:p,
-    client: document.getElementById('fc').value.trim()||'',
-    type: document.getElementById('ft').value.trim()||'سيدان',
-    brand: document.getElementById('fb').value.trim()||'غير محدد',
+    type, brand,
     plateNum: document.getElementById('fpl-num').value.trim()||'----',
     plateLet: document.getElementById('fpl-let').value.trim()||'---',
-    zone: document.getElementById('fz').value.trim()||'A1',
     notes: document.getElementById('fn').value.trim(),
     status:'active', ready:false,
     createdAt, dateKey
   };
   tickets.unshift(entry);
-  allLog.unshift({...entry}); // add to permanent log
+  allLog.unshift({...entry});
   saveData();
   closeModal();render();
   toast(`✓ تم إنشاء التذكرة ${id}`);
@@ -1089,7 +1203,6 @@ function create(){
  
 /* ══ ALL VEHICLES MODAL ══ */
 function openAllVehicles(){
-  // Set today's date as default filter
   const today = new Date();
   const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
   document.getElementById('tbl-date').value = todayStr;
@@ -1101,7 +1214,7 @@ function avmclick(e){ if(e.target===document.getElementById('all-vehicles-modal'
  
 function renderTable(){
   const q = (document.getElementById('tbl-srch').value||'').toLowerCase();
-  const dateFilter = document.getElementById('tbl-date').value; // YYYY-MM-DD or ''
+  const dateFilter = document.getElementById('tbl-date').value;
  
   let data = [...allLog].filter(t=>{
     if(dateFilter && t.dateKey !== dateFilter) return false;
@@ -1113,11 +1226,10 @@ function renderTable(){
   document.getElementById('tbl-count').textContent = `إجمالي النتائج: ${data.length} مركبة`;
  
   if(!data.length){
-    tbody.innerHTML=`<tr><td colspan="9" class="tbl-empty">لا توجد سجلات لهذا اليوم</td></tr>`;
+    tbody.innerHTML=`<tr><td colspan="7" class="tbl-empty">لا توجد سجلات لهذا اليوم</td></tr>`;
     return;
   }
  
-  // Group by date
   const groups = {};
   data.forEach(t=>{
     const dk = t.dateKey||'غير محدد';
@@ -1128,9 +1240,8 @@ function renderTable(){
   const keys = Object.keys(groups).sort((a,b)=>b.localeCompare(a));
   let html='';
   keys.forEach(dk=>{
-    // Day header row if no date filter (showing multiple days)
     if(!dateFilter && keys.length>1){
-      html+=`<tr class="day-group-header"><td colspan="9">📅 ${dk.replace(/-/g,'/')} — ${groups[dk].length} مركبة</td></tr>`;
+      html+=`<tr class="day-group-header"><td colspan="7">📅 ${dk.replace(/-/g,'/')} — ${groups[dk].length} مركبة</td></tr>`;
     }
     groups[dk].forEach(t=>{
       const timePart = t.createdAt ? t.createdAt.split(' ')[1]||'—' : '—';
@@ -1143,9 +1254,7 @@ function renderTable(){
           </div>
         </td>
         <td>${t.brand} / ${t.type}</td>
-        <td>${t.client||'—'}</td>
         <td style="color:var(--gold3)">${t.pager}</td>
-        <td>${t.zone}</td>
         <td><span class="badge ${sClass(t.status)}">${sLabel(t.status)}</span></td>
         <td style="font-size:11px;direction:ltr">${t.dateKey||'—'}</td>
         <td style="font-size:11px;direction:ltr">${timePart}</td>
@@ -1162,21 +1271,19 @@ function exportCSV(){
   const data = allLog.filter(t=>{
     if(dateFilter && t.dateKey !== dateFilter) return false;
     if(!q) return true;
-    return (t.id+(t.plateNum||'')+(t.plateLet||'')+(t.client||'')+t.brand+(t.pager||'')).toLowerCase().includes(q);
+    return (t.id+(t.plateNum||'')+(t.plateLet||'')+t.brand+(t.pager||'')).toLowerCase().includes(q);
   });
  
   if(!data.length){ toast('⚠️ لا توجد بيانات للتصدير'); return; }
  
-  const headers = ['رقم التذكرة','اللوحة الحروف','اللوحة الأرقام','الماركة','النوع','العميل','الجهاز','المنطقة','الحالة','التاريخ','الوقت','ملاحظات'];
+  const headers = ['رقم التذكرة','اللوحة الحروف','اللوحة الأرقام','الماركة','النوع','الجهاز','الحالة','التاريخ','الوقت','ملاحظات'];
   const rows = data.map(t=>{
     const timePart = t.createdAt ? t.createdAt.split(' ')[1]||'' : '';
-    return [t.id, t.plateLet||'', t.plateNum||'', t.brand, t.type, t.client||'', t.pager, t.zone, sLabel(t.status), t.dateKey||'', timePart, t.notes||'']
+    return [t.id, t.plateLet||'', t.plateNum||'', t.brand, t.type, t.pager, sLabel(t.status), t.dateKey||'', timePart, t.notes||'']
       .map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',');
   });
  
   const csv = '\uFEFF' + headers.map(h=>`"${h}"`).join(',') + '\n' + rows.join('\n');
- 
-  // Use data URI — avoids blank page issue in some browsers
   const dataUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
   const a = document.createElement('a');
   a.setAttribute('href', dataUri);
